@@ -1,0 +1,39 @@
+
+=========================
+Chiptunes - GREEN Edition
+=========================
+
+All notable changes to this project will be documented in this Changelog file.
+_________________________
+
+[Version 1.1] - 18 November 2019
+
+- Added "Victory jingle 2"
+- Added "Defeat jingle 2"
+_________________________
+
+[Version 1.0] - 11 October 2019
+
+- Official release
+- Added "Title theme"
+- Added "Ingame theme"
+- Added "Ingame theme 2"
+- Added "Ingame theme 3"
+- Added "Battle theme"
+- Added "Boss theme"
+- Added "Victory jingle"
+- Added "Defeat jingle
+- Added "Ambience crickets"
+- Added "Ambience ocean waves"
+- Added "Ambience thunders"
+- Added "Ambience wind"
+- Added PDF readme file
+- Added TXT changelog file
+
+=========================
+Chiptunes - GREEN Edition
+=========================
+
+Copyright (c) 2019 Filippo Vicarelli.
+https://www.filippovicarelli.com
+
