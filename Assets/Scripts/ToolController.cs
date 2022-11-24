@@ -21,7 +21,6 @@ public class ToolController : MonoBehaviour
             gameObject.AddComponent(typeof (AudioSource)) as AudioSource;
         if (tool != null)
         {
-            audioSource.clip = 
             _tool =
                 Instantiate(tool,
                 (Vector2) transform.position + offset,
