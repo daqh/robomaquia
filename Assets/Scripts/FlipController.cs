@@ -5,23 +5,23 @@ using UnityEngine;
 public class FlipController : MonoBehaviour
 {
 
-    private Vector2 localScale;
-    private bool isFlipped = false;
+    private Animator animator;
 
-    void Start() {
-        localScale = transform.localScale;
+    private void Awake() {
+        animator = GetComponent<Animator>();
     }
 
-    public void WatchLeft() {
-        if(!isFlipped) {
-            transform.localScale = new Vector2(-localScale.x, localScale.y);
-            isFlipped = true;
-        }
+    void Start()
+    {
+        
     }
 
     public void WatchRight() {
-        transform.localScale = localScale;
-        isFlipped = false;
+        animator.SetBool("Flip", false);
+    }
+
+    public void WatchLeft() {
+        animator.SetBool("Flip", true);
     }
 
 }

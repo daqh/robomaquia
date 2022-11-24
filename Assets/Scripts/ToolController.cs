@@ -1,62 +1,51 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class ToolController : MonoBehaviour
 {
 
     [SerializeField]
     private Tool tool;
 
-    private Tool child;
-
     [SerializeField]
-    private Vector2 offset = Vector2.zero;
+    private Vector2 offset;
 
-    private AudioSource audioSource;
+    private Tool _tool;
 
-    private Rigidbody2D rigidbody2D;
-
-    void Awake()
-    {
-        rigidbody2D = GetComponent<Rigidbody2D>();
-        child = Instantiate(tool, (Vector2)transform.position + offset, Quaternion.identity);
-        child.transform.parent = transform;
-        child.Owner = this;
-        child.gameObject.SetActive(false);
-        audioSource = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
-        audioSource.clip = tool.AudioClip;
-    }
-
-    void Update()
-    {
-        
-    }
-
-    public bool Loop {
-        get {
-            return tool.Loop;
+    private void Start() {
+        if(tool != null) {
+            _tool = Instantiate(tool, (Vector2)transform.position + offset, Quaternion.identity);
+            _tool.transform.parent = transform;
+            _tool.gameObject.SetActive(false);
         }
     }
 
     public void Use(Vector2 position) {
-        child.gameObject.SetActive(true);
-        if(child.Use(position)) {
-            audioSource.Play();
-        }
+        _tool.gameObject.SetActive(true);
+        _tool.Use(position);
     }
 
-    void OnDrawGizmos() {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere((Vector2)transform.position + offset, .01f);
-    }
-
-    public Rigidbody2D Rigidbody2D {
+    public Tool Tool {
         get {
-            return rigidbody2D;
+            return _tool;
         }
-    } 
+    }
+
+    public Vector2 Offset {
+        get {
+            return offset;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos
+            .DrawSphere((Vector2) transform.position + offset,
+            .01f);
+    }
+
 
 }

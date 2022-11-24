@@ -2,39 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(ToolController))]
-[RequireComponent(typeof(RunController))]
+[RequireComponent(typeof (Rigidbody2D))]
+[RequireComponent(typeof (HealthController))]
+[RequireComponent(typeof (MovementController2D))]
+[RequireComponent(typeof (ToolController))]
 public class CharacterManager : MonoBehaviour
 {
+    private MovementController2D movementController2D;
 
-    private FlipController flipController;
+    private HealthController healthController;
 
     private ToolController toolController;
 
-    private RunController runController;
+    private FlipController flipController;
 
-    private void Awake() {
-        flipController = gameObject.AddComponent(typeof(FlipController)) as FlipController;
-        runController = GetComponent<RunController>();
+    void Awake()
+    {
+        flipController =
+            gameObject.AddComponent(typeof (FlipController)) as FlipController;
+        movementController2D = GetComponent<MovementController2D>();
+        healthController = GetComponent<HealthController>();
         toolController = GetComponent<ToolController>();
     }
 
-    public FlipController FlipController {
-        get {
-            return flipController;
+    public void Move(Vector2 direction)
+    {
+        if(toolController.Tool != null) {
+            if (!toolController.Tool.InUse || !toolController.Tool.LockFlipOnUse)
+            {
+                if (direction.x < 0)
+                {
+                    flipController.WatchLeft();
+                }
+                else if (direction.x > 0)
+                {
+                    flipController.WatchRight();
+                }
+            }
         }
+        movementController2D.Move (direction);
     }
 
-    public RunController RunController {
-        get {
-            return runController;
+    public void UseTool(Vector2 position)
+    {
+        if(toolController.Tool.FlipCharacter && (!toolController.Tool.LockFlipOnUse || !toolController.Tool.gameObject.active)) {
+            Vector2 relativePosition = position - (Vector2)transform.position;
+            if(relativePosition.x < 0) flipController.WatchLeft();
+            else if(relativePosition.x > 0) flipController.WatchRight();
         }
+        toolController.Use (position);
     }
-
-    public ToolController ToolController {
-        get {
-            return toolController;
-        }
-    }
-
 }

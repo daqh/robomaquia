@@ -2,45 +2,67 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Tool: MonoBehaviour
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Collider2D))]
+public abstract class Tool : MonoBehaviour
 {
 
     [SerializeField]
-    private AudioClip audioClip;
+    private bool lockFlipOnUse;
 
     [SerializeField]
-    private bool loop = true;
+    private bool flipCharacter;
 
-    public bool Use(Vector2 position) {
-        return OnUse(position);
+    [SerializeField]
+    private bool loop;
+
+    [SerializeField]
+    private AudioClip useClip;
+
+    [SerializeField]
+    [Range(0.1f, 10)]
+    private float speed;
+
+    private AudioSource audioSource;
+
+    private Animator animator;
+
+    private void Awake() {
+        animator = GetComponent<Animator>();
+        audioSource = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+        audioSource.clip = useClip;
+        animator.SetFloat("Speed", speed);
     }
 
-    public abstract bool OnUse(Vector2 position);
-
-    public bool Loop {
-        get {
-            return loop;
+    private void Update() {
+        if(!InUse) {
+            animator.SetFloat("Speed", speed);
+            gameObject.SetActive(false);
         }
     }
 
-    public abstract bool AreUsing {
-        get;
-    }
-
-    public AudioClip AudioClip {
-        get {
-            return audioClip;
+    public void Use(Vector2 position) {
+        if(!InUse) {
+            audioSource.Play();
+            animator.SetTrigger("Use");
         }
     }
 
-    private ToolController owner;
-
-    public ToolController Owner {
+    public bool InUse {
         get {
-            return owner;
+            return animator.GetCurrentAnimatorStateInfo(0).IsName("Use Tool");
         }
-        set {
-            owner = value;
+    }
+
+    public bool FlipCharacter {
+        get {
+            return flipCharacter;
+        }
+    }
+
+    public bool LockFlipOnUse {
+        get {
+            return lockFlipOnUse;
         }
     }
 

@@ -13,49 +13,37 @@ public class PlayerController : MonoBehaviour
         characterManager = GetComponent<CharacterManager>();
     }
 
+    [SerializeField]
+    private KeyCode leftKey = KeyCode.A;
+
+    [SerializeField]
+    private KeyCode rightKey = KeyCode.D;
+
     void Update()
     {
-        bool left = Input.GetKey(KeyCode.A);
-        bool right = Input.GetKey(KeyCode.D);
-        bool up = Input.GetKey(KeyCode.W);
-        bool down = Input.GetKey(KeyCode.S);
-        if (up)
+        if (Input.GetKey(KeyCode.W))
         {
-            characterManager.RunController.Run(0);
+            characterManager.Move(transform.up);
         }
-        if (right)
+        if (Input.GetKey(KeyCode.S))
         {
-            characterManager.RunController.Run(90);
-            if (!left) characterManager.FlipController.WatchRight();
+            characterManager.Move(-transform.up);
         }
-        if (left)
+        if (Input.GetKey(leftKey))
         {
-            characterManager.RunController.Run(270);
-            if (!right) characterManager.FlipController.WatchLeft();
+            characterManager.Move(-transform.right);
         }
-        if (down)
+        if (Input.GetKey(rightKey))
         {
-            characterManager.RunController.Run(180);
+            characterManager.Move(transform.right);
         }
-        if (Input.GetMouseButtonDown(0) || (characterManager.ToolController.Loop && Input.GetMouseButton(0)))
+        if (Input.GetMouseButton(0))
         {
-            Vector3 screenPosition = Input.mousePosition;
+            Vector2 mousePosition = Input.mousePosition;
             Vector2 worldPosition =
-                Camera.main.ScreenToWorldPoint(screenPosition);
-            Vector2 relativePosition =
-                worldPosition - (Vector2) transform.position;
-            if (!(left ^ right))
-            {
-                if (relativePosition.x < 0)
-                {
-                    characterManager.FlipController.WatchLeft();
-                }
-                if (relativePosition.x > 0)
-                {
-                    characterManager.FlipController.WatchRight();
-                }
-            }
-            characterManager.ToolController.Use (relativePosition);
+                Camera.main.ScreenToWorldPoint(mousePosition);
+            characterManager.UseTool(worldPosition);
         }
     }
+
 }
