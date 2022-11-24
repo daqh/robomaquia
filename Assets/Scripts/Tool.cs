@@ -37,6 +37,7 @@ public abstract class Tool : MonoBehaviour
     private void Update() {
         if(!InUse) {
             animator.SetFloat("Speed", speed);
+            Debug.Log(animator.GetFloat("Speed"));
             gameObject.SetActive(false);
         }
     }

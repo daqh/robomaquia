@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3214856949491341924}
   - component: {fileID: 1262405465963945190}
   - component: {fileID: 8383097581701802640}
-  - component: {fileID: 1624642321319968705}
   m_Layer: 0
   m_Name: WeaponAnimeSword
   m_TagString: Untagged
@@ -149,4 +148,6 @@ MonoBehaviour:
   lockFlipOnUse: 1
   flipCharacter: 1
   loop: 0
-  useClip: {fileID: 8300000, guid: 62da4c9ba9
+  useClip: {fileID: 8300000, guid: 62da4c9ba90de8f4da62c6b70a411149, type: 3}
+  speed: 0
+  damage: 5
