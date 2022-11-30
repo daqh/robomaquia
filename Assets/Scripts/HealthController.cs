@@ -11,6 +11,10 @@ public class HealthController : MonoBehaviour
 
     [SerializeField]
     [Range(0, 100)]
+    private int maxHealth = 100;
+
+    [SerializeField]
+    [Range(0, 100)]
     private int health = 100;
 
     [SerializeField]
@@ -42,6 +46,7 @@ public class HealthController : MonoBehaviour
         health -= amount;
         timeFromLastDamage = 0;
         audioSource.Play();
+        OnGetDamage?.Invoke(amount);
     }
 
     public bool Immune {
@@ -50,5 +55,14 @@ public class HealthController : MonoBehaviour
         }
     }
 
+    public int MaxHealth {
+        get {
+            return maxHealth;
+        }
+    }
+
+    public delegate void OnGetDamageDelegate(int amount);
+
+    public event OnGetDamageDelegate OnGetDamage;
 
 }

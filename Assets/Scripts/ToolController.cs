@@ -5,42 +5,48 @@ using UnityEngine;
 
 public class ToolController : MonoBehaviour
 {
-    [SerializeField]
     private Tool tool;
 
     [SerializeField]
     private Vector2 offset;
 
-    private Tool _tool;
-
+    // private Tool _tool;
     private AudioSource audioSource;
 
-    private void Start()
+    private void Awake()
     {
         audioSource =
             gameObject.AddComponent(typeof (AudioSource)) as AudioSource;
-        if (tool != null)
-        {
-            _tool =
-                Instantiate(tool,
-                (Vector2) transform.position + offset,
-                Quaternion.identity);
-            _tool.transform.parent = transform;
-            _tool.gameObject.SetActive(false);
-        }
     }
 
     public void Use(Vector2 position)
     {
-        _tool.gameObject.SetActive(true);
-        _tool.Use (position);
+        if(tool) {
+            tool.gameObject.SetActive(true);
+            tool.Use (position);
+        }
     }
 
     public Tool Tool
     {
         get
         {
-            return _tool;
+            return tool;
+        }
+        set
+        {
+            if(HasTool && tool.InUse) return;
+            Tool _ = tool;
+            if(value != null) {
+                tool =
+                    Instantiate(value,
+                    (Vector2) transform.position + offset * new Vector2(transform.localScale.x/Mathf.Abs(transform.localScale.x), transform.localScale.y/Mathf.Abs(transform.localScale.y)),
+                    Quaternion.identity,
+                    transform
+                );
+                tool.gameObject.SetActive(false);
+            }
+            if(_ != null) Destroy(_.gameObject);
         }
     }
 
@@ -49,6 +55,12 @@ public class ToolController : MonoBehaviour
         get
         {
             return offset;
+        }
+    }
+
+    public bool HasTool {
+        get {
+            return tool != null;
         }
     }
 

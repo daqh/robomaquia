@@ -31,27 +31,37 @@ public abstract class Tool : MonoBehaviour
         animator = GetComponent<Animator>();
         audioSource = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
         audioSource.clip = useClip;
-        animator.SetFloat("Speed", speed);
     }
 
     private void Update() {
+        animator.SetFloat("Speed", speed);
         if(!InUse) {
-            animator.SetFloat("Speed", speed);
-            Debug.Log(animator.GetFloat("Speed"));
             gameObject.SetActive(false);
         }
     }
 
+    private bool usedThisFrame = false;
+
+    public void LateUpdate() {
+        usedThisFrame = false;
+    }
+
     public void Use(Vector2 position) {
         if(!InUse) {
+        usedThisFrame = true;
             audioSource.Play();
             animator.SetTrigger("Use");
+            OnUse(position);
         }
+    }
+
+    public virtual void OnUse(Vector2 position) {
+
     }
 
     public bool InUse {
         get {
-            return animator.GetCurrentAnimatorStateInfo(0).IsName("Use Tool");
+            return animator.GetCurrentAnimatorStateInfo(0).IsName("Use Tool") || (usedThisFrame && lockFlipOnUse);
         }
     }
 

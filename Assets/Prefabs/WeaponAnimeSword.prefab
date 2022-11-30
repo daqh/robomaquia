@@ -148,6 +148,6 @@ MonoBehaviour:
   lockFlipOnUse: 1
   flipCharacter: 1
   loop: 0
-  useClip: {fileID: 8300000, guid: 62da4c9ba90de8f4da62c6b70a411149, type: 3}
-  speed: 0
+  useClip: {fileID: 8300000, guid: 4a718818d0bf65a418edeeff8dde7658, type: 3}
+  speed: 2
   damage: 5

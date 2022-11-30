@@ -11,7 +11,7 @@ public class SmoothFollowingCamera2D : MonoBehaviour
     [SerializeField]
     private float speed = 1;
 
-    void Update()
+    void LateUpdate()
     {
         float distance =
             Vector3

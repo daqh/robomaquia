@@ -21,6 +21,21 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Alpha1)) {
+            characterManager.SetItem(0);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha2)) {
+            characterManager.SetItem(1);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha3)) {
+            characterManager.SetItem(2);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha4)) {
+            characterManager.SetItem(3);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha5)) {
+            characterManager.SetItem(4);
+        }
         if (Input.GetKey(KeyCode.W))
         {
             characterManager.Move(transform.up);
