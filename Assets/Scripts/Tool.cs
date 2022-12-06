@@ -23,14 +23,10 @@ public abstract class Tool : MonoBehaviour
     [Range(0.1f, 10)]
     private float speed;
 
-    private AudioSource audioSource;
-
     private Animator animator;
 
     private void Awake() {
         animator = GetComponent<Animator>();
-        audioSource = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
-        audioSource.clip = useClip;
     }
 
     private void Update() {
@@ -48,15 +44,15 @@ public abstract class Tool : MonoBehaviour
 
     public void Use(Vector2 position) {
         if(!InUse) {
-        usedThisFrame = true;
-            audioSource.Play();
+            usedThisFrame = true;
+            AudioSource.PlayClipAtPoint(useClip, transform.position);
             animator.SetTrigger("Use");
             OnUse(position);
         }
     }
 
     public virtual void OnUse(Vector2 position) {
-
+        
     }
 
     public bool InUse {
@@ -76,5 +72,9 @@ public abstract class Tool : MonoBehaviour
             return lockFlipOnUse;
         }
     }
+
+    public delegate void OnHitDelegate();
+
+    public abstract event OnHitDelegate OnHit;
 
 }

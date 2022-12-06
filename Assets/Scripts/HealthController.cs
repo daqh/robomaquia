@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-
     [SerializeField]
     private float immunityDuration = 1;
 
@@ -23,46 +22,85 @@ public class HealthController : MonoBehaviour
     private AudioSource audioSource;
 
     private Animator animator;
+
+
     private float timeFromLastDamage = 0;
-    private void Start() {
+
+    private void Start()
+    {
         animator = GetComponent<Animator>();
-        audioSource = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+        audioSource =
+            gameObject.AddComponent(typeof (AudioSource)) as AudioSource;
         audioSource.clip = damageClip;
     }
 
     private void Update()
     {
         timeFromLastDamage += Time.deltaTime;
-        if(Immune) {
+        if (Immune)
+        {
             animator.SetBool("Immunity", true);
-        } else {
+        }
+        else
+        {
             animator.SetBool("Immunity", false);
         }
     }
 
-    public void Damage(int amount)
+    public void Damage(Damage damage)
     {
         animator.SetTrigger("Hit");
-        health -= amount;
+        health -= damage.Amount;
         timeFromLastDamage = 0;
         audioSource.Play();
-        OnGetDamage?.Invoke(amount);
+        OnGetDamage?.Invoke(damage);
+        OnHealthChange?.Invoke(health);
+        if (health <= 0)
+        {
+            Die();
+        }
     }
 
-    public bool Immune {
-        get {
+    public void Die()
+    {
+        OnDeath?.Invoke();
+        Destroy (gameObject);
+    }
+
+    public bool Immune
+    {
+        get
+        {
             return timeFromLastDamage < immunityDuration;
         }
     }
 
-    public int MaxHealth {
-        get {
+    public int MaxHealth
+    {
+        get
+        {
             return maxHealth;
         }
     }
 
-    public delegate void OnGetDamageDelegate(int amount);
+    public int Health
+    {
+        get
+        {
+            return health;
+        }
+    }
+
+    public delegate void OnGetDamageDelegate(Damage amount);
 
     public event OnGetDamageDelegate OnGetDamage;
+
+    public delegate void OnHealthChangeDelegate(int health);
+
+    public event OnHealthChangeDelegate OnHealthChange;
+
+    public delegate void OnDeathDelegate();
+
+    public event OnDeathDelegate OnDeath;
 
 }

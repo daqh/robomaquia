@@ -12,6 +12,8 @@ public class RangeWeapon : Tool
     [SerializeField]
     private Bullet bullet;
 
+    public override event OnHitDelegate OnHit;
+
     public override void OnUse(Vector2 position) {
         transform.rotation = Quaternion.Euler(Vector3.right);
         Bullet _ = Instantiate(
@@ -21,5 +23,6 @@ public class RangeWeapon : Tool
         );
         _.gameObject.transform.up = position - (Vector2)transform.position;
     }
+
 
 }

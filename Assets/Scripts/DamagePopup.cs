@@ -8,7 +8,7 @@ public class DamagePopup : MonoBehaviour
 {
 
     [SerializeField]
-    private float lifeTime = 0.7f;
+    private float lifeTime = 2f;
 
     [SerializeField]
     private float speed = 1;
@@ -22,17 +22,18 @@ public class DamagePopup : MonoBehaviour
 
     void Update()
     {
-        transform.position += transform.up * Time.deltaTime * speed * (lifeTime + speed);
         if(lifeTime < 0) {
-            Debug.Log(textMeshPro.color.a);
             if(textMeshPro.color.a < 0) {
                 Destroy(gameObject);
             }
             Color color = textMeshPro.color;
             color.a -= Time.deltaTime;
             textMeshPro.color = color;
+            textMeshPro.fontSize -= Time.deltaTime * 0.5f;
+        } else {
+            transform.position += transform.up * Time.deltaTime * speed * (lifeTime + speed);
+            lifeTime -= Time.deltaTime;
         }
-        lifeTime -= Time.deltaTime;
     }
 
     public float Speed {

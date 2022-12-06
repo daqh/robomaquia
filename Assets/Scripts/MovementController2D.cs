@@ -23,10 +23,10 @@ public class MovementController2D : MonoBehaviour
 
     private Vector2 direction = Vector2.zero;
 
-    public void Update()
+    public void FixedUpdate()
     {
-        direction.Normalize();
-        rigidbody2D.AddForce (direction * Time.deltaTime * multiplier);
+        // direction.Normalize();
+        rigidbody2D.AddForce (direction.normalized * Time.deltaTime * multiplier);
         if(direction != Vector2.zero) {
             animator.SetBool("Run", true);
         } else {
@@ -39,4 +39,11 @@ public class MovementController2D : MonoBehaviour
     {
         this.direction += direction;
     }
+
+    public Vector2 Direction {
+        get {
+            return direction;
+        }
+    }
+
 }
