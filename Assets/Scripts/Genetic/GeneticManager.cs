@@ -22,9 +22,11 @@ namespace Genetic {
         private void Populate() {
             int i = 0;
             foreach(GeneticIndividual individual in population) {
-                GeneticSpawnPoint spawnPoint = spawnPoints[i % spawnPoints.Count];
+                GeneticSpawnPoint spawnPoint;
+                do {
+                    spawnPoint = spawnPoints[i++ % spawnPoints.Count];
+                } while(!spawnPoint.Enabled);
                 spawnPoint.Instantiate(individual);
-                i++;
             }
         }
 
