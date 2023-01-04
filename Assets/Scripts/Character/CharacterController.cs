@@ -13,7 +13,7 @@ public class CharacterController : MonoBehaviour
 
     private HealthController healthController;
 
-    private WeaponController toolController;
+    private WeaponController weaponController;
 
     private FlipController flipController;
 
@@ -25,7 +25,7 @@ public class CharacterController : MonoBehaviour
             gameObject.AddComponent(typeof (FlipController)) as FlipController;
         movementController2D = GetComponent<MovementController2D>();
         healthController = GetComponent<HealthController>();
-        toolController = GetComponent<WeaponController>();
+        weaponController = GetComponent<WeaponController>();
         inventoryController = GetComponent<InventoryController>();
     }
 
@@ -36,9 +36,9 @@ public class CharacterController : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
-        if (toolController.Tool != null)
+        if (weaponController.Tool != null)
         {
-            if (!toolController.Tool.InUse || !toolController.Tool.LockFlipOnUse
+            if (!weaponController.Tool.InUse || !weaponController.Tool.LockFlipOnUse
             )
             {
                 if (direction.x < 0)
@@ -67,9 +67,9 @@ public class CharacterController : MonoBehaviour
 
     public void UseTool(Vector2 position)
     {
-        if (toolController.Tool != null)
+        if (weaponController.Tool != null)
         {
-            if (toolController.Tool.FlipCharacter && !toolController.Tool.InUse)
+            if (weaponController.Tool.FlipCharacter && !weaponController.Tool.InUse)
             {
                 Vector2 relativePosition =
                     position - (Vector2) transform.position;
@@ -77,15 +77,14 @@ public class CharacterController : MonoBehaviour
                     flipController.WatchLeft();
                 else if (relativePosition.x > 0) flipController.WatchRight();
             }
-            toolController.Use (position);
+            weaponController.Use (position);
         }
     }
 
     public void SetItem(int index)
     {
         // if(index < inventoryController.Items.Count - 1) {
-        Debug.Log(inventoryController.Items[index]);
-        toolController.Tool = inventoryController.Items[index];
+        weaponController.Tool = inventoryController.Items[index];
         // }
     }
 }
