@@ -3,81 +3,37 @@ using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
 
-[RequireComponent(typeof (CharacterManager))]
+[RequireComponent(typeof (CharacterController))]
 public class AgentController : MonoBehaviour
 {
-    // private CharacterManager characterManager;
 
-    // [SerializeField]
-    // private Transform target;
+    [SerializeField]
+    [Range(0, 2)]
+    private float fieldOfViewRadius = 1;
 
-    // [SerializeField]
-    // private float nextWaypointDistance = 0.1f;
+    [SerializeField]
+    [Range(0, 2)]
+    private float fieldOfAttackRadius = 1;
 
-    // private Path path;
+    private void Start() {
 
-    // private Seeker seeker;
+    }
 
-    // private int currentWaypoint = 0;
+    private void Update() {
 
-    // private bool endOfPath = false;
+    }
 
-    // void Start()
-    // {
-    //     seeker = GetComponent<Seeker>();
-    //     characterManager = GetComponent<CharacterManager>();
-    //     characterManager.SetItem(0);
+    void OnDrawGizmos()
+    {
+        Debug.DrawLine(transform.position + transform.up * fieldOfViewRadius, transform.position + transform.right * fieldOfViewRadius, Color.blue);
+        Debug.DrawLine(transform.position + transform.right * fieldOfViewRadius, transform.position - transform.up * fieldOfViewRadius, Color.blue);
+        Debug.DrawLine(transform.position - transform.up * fieldOfViewRadius, transform.position - transform.right * fieldOfViewRadius, Color.blue);
+        Debug.DrawLine(transform.position - transform.right * fieldOfViewRadius, transform.position + transform.up * fieldOfViewRadius, Color.blue);
 
-    //     InvokeRepeating("UpdatePath", 0f, 0.7f);
-    // }
+        Debug.DrawLine(transform.position + transform.up * fieldOfAttackRadius, transform.position + transform.right * fieldOfAttackRadius, Color.red);
+        Debug.DrawLine(transform.position + transform.right * fieldOfAttackRadius, transform.position - transform.up * fieldOfAttackRadius, Color.red);
+        Debug.DrawLine(transform.position - transform.up * fieldOfAttackRadius, transform.position - transform.right * fieldOfAttackRadius, Color.red);
+        Debug.DrawLine(transform.position - transform.right * fieldOfAttackRadius, transform.position + transform.up * fieldOfAttackRadius, Color.red);
+    }
 
-    // void UpdatePath()
-    // {
-    //     if (seeker.IsDone())
-    //         seeker
-    //             .StartPath(transform.position, target.position, OnPathComplete);
-    // }
-
-    // void OnPathComplete(Path path)
-    // {
-    //     if (!path.error)
-    //     {
-    //         this.path = path;
-    //         currentWaypoint = 0;
-    //     }
-    // }
-
-    // void Update()
-    // {
-    //     float distanceFromTarget = Vector2.Distance(transform.position, target.position);
-    //     if(distanceFromTarget > 2) {
-    //         return;
-    //     }
-    //     if(distanceFromTarget < 0.5f) {
-    //         // characterManager.UseTool(target.position);
-    //         return;
-    //     };
-    //     if (path == null) return;
-    //     if (currentWaypoint >= path.vectorPath.Count)
-    //     {
-    //         endOfPath = true;
-    //         nextWaypointDistance = 3f;
-    //         return;
-    //     }
-    //     else
-    //     {
-    //         endOfPath = false;
-    //         nextWaypointDistance = 0.1f;
-    //     }
-    //     Vector2 direction =
-    //         path.vectorPath[currentWaypoint] - transform.position;
-    //     characterManager.Move (direction);
-    //     float distance =
-    //         Vector2
-    //             .Distance(transform.position, path.vectorPath[currentWaypoint]);
-    //     if (distance < nextWaypointDistance)
-    //     {
-    //         currentWaypoint++;
-    //     }
-    // }
 }

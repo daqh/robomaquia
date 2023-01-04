@@ -29,7 +29,7 @@ public class MeleeWeapon : Tool
                     Vector2 bump = o.transform.position - transform.position;
                     bump.Normalize();
                     rigidbody2D.AddForce(bump * Mathf.Log(damage, 2) * shove);
-                    OnHit?.Invoke();
+                    OnHit?.Invoke(actualDamage);
                 }
             }
         }

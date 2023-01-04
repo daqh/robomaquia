@@ -73,7 +73,7 @@ public abstract class Tool : MonoBehaviour
         }
     }
 
-    public delegate void OnHitDelegate();
+    public delegate void OnHitDelegate(int efficacy);
 
     public abstract event OnHitDelegate OnHit;
 

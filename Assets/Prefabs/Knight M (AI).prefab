@@ -346,15 +346,16 @@ GameObject:
   - component: {fileID: 6834378613626738027}
   - component: {fileID: 6834378613626738028}
   - component: {fileID: 6834378613626738029}
-  - component: {fileID: 6834378613626738030}
   - component: {fileID: 6834378613626738031}
-  - component: {fileID: 6834378613626738016}
   - component: {fileID: 6834378613626738017}
   - component: {fileID: 6834378613626738024}
   - component: {fileID: 6834378613626738039}
   - component: {fileID: 3250930475163527378}
   - component: {fileID: 356292283853948549}
   - component: {fileID: 253840385642567254}
+  - component: {fileID: 2630174463288223507}
+  - component: {fileID: 7953183497584564956}
+  - component: {fileID: 7662346159285309489}
   m_Layer: 0
   m_Name: Knight M (AI)
   m_TagString: Untagged
@@ -450,20 +451,6 @@ MonoBehaviour:
   maxHealth: 100
   health: 100
   damageClip: {fileID: 8300000, guid: d7beb7fa5129e6f448f955f513e89659, type: 3}
---- !u!114 &6834378613626738030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6834378613626738018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa63e3558a5c4214c8eeb54853278810, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: 0.1, y: 0.1}
-  renderer: {fileID: 6834378614224570767}
 --- !u!114 &6834378613626738031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,18 +465,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 8383097581701802640, guid: 44438719e88bf2d4ab4fd3d44b0e77b4, type: 3}
---- !u!114 &6834378613626738016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6834378613626738018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3fbbb74f23a51f47b3acbbdab060a88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6834378613626738017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,6 +477,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1909c5940acbf42925f1451197a120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fieldOfViewRadius: 1
+  fieldOfAttackRadius: 1
 --- !u!114 &6834378613626738024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,6 +571,44 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8e0a68d0900d1c4abd38e44c56eec17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2630174463288223507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6834378613626738018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9eaad7a9a436b49912d551cbf34453, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7953183497584564956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6834378613626738018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e81d7aa8d4e5d4dae1b5a33e07c27f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0.05, y: 0.05}
+  renderer: {fileID: 6834378614224570767}
+--- !u!114 &7662346159285309489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6834378613626738018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00263432064e11845a39b0aacd8f7dd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6834378613656925142
@@ -755,7 +770,7 @@ MonoBehaviour:
   - {x: 0.034955114, y: 0.037001222, z: 0}
   m_ShapePathHash: 1698598237
   m_Mesh: {fileID: 0}
-  m_InstanceId: 68338
+  m_InstanceId: 95320
 --- !u!1 &8806770913902642792
 GameObject:
   m_ObjectHideFlags: 0

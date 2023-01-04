@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterManager))]
+[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
 
-    private CharacterManager characterManager;
+    private CharacterController characterController;
 
     void Start()
     {
-        characterManager = GetComponent<CharacterManager>();
+        characterController = GetComponent<CharacterController>();
     }
 
     [SerializeField]
@@ -22,42 +22,42 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Alpha1)) {
-            characterManager.SetItem(0);
+            characterController.SetItem(0);
         }
         if(Input.GetKeyDown(KeyCode.Alpha2)) {
-            characterManager.SetItem(1);
+            characterController.SetItem(1);
         }
         if(Input.GetKeyDown(KeyCode.Alpha3)) {
-            characterManager.SetItem(2);
+            characterController.SetItem(2);
         }
         if(Input.GetKeyDown(KeyCode.Alpha4)) {
-            characterManager.SetItem(3);
+            characterController.SetItem(3);
         }
         if(Input.GetKeyDown(KeyCode.Alpha5)) {
-            characterManager.SetItem(4);
+            characterController.SetItem(4);
         }
         if (Input.GetKey(KeyCode.W))
         {
-            characterManager.Move(transform.up);
+            characterController.Move(transform.up);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            characterManager.Move(-transform.up);
+            characterController.Move(-transform.up);
         }
         if (Input.GetKey(leftKey))
         {
-            characterManager.Move(-transform.right);
+            characterController.Move(-transform.right);
         }
         if (Input.GetKey(rightKey))
         {
-            characterManager.Move(transform.right);
+            characterController.Move(transform.right);
         }
         if (Input.GetMouseButton(0))
         {
             Vector2 mousePosition = Input.mousePosition;
             Vector2 worldPosition =
                 Camera.main.ScreenToWorldPoint(mousePosition);
-            characterManager.UseTool(worldPosition);
+            characterController.UseTool(worldPosition);
         }
     }
 
