@@ -8,6 +8,12 @@ using Genetic;
 public class CharacterGeneticIndividual : GeneticIndividual
 {
 
+    private float precisionWeight = 1;
+
+    private float lifespanWeight = 0.5f;
+
+    private float damageWeight = 1;
+
     private CharacterStats characterStats;
 
     private void Start() {
@@ -22,7 +28,7 @@ public class CharacterGeneticIndividual : GeneticIndividual
 
     public override float Fitness {
         get {
-            return characterStats.Precision + characterStats.Lifespan;
+            return characterStats.Precision * precisionWeight + characterStats.Lifespan * lifespanWeight + characterStats.Damage * damageWeight;
         }
     }
 

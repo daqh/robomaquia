@@ -5,15 +5,15 @@ using UnityEngine;
 [RequireComponent(typeof (Rigidbody2D))]
 [RequireComponent(typeof (HealthController))]
 [RequireComponent(typeof (MovementController2D))]
-[RequireComponent(typeof (ToolController))]
+[RequireComponent(typeof (WeaponController))]
 [RequireComponent(typeof (InventoryController))]
-public class CharacterManager : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
     private MovementController2D movementController2D;
 
     private HealthController healthController;
 
-    private ToolController toolController;
+    private WeaponController toolController;
 
     private FlipController flipController;
 
@@ -25,7 +25,7 @@ public class CharacterManager : MonoBehaviour
             gameObject.AddComponent(typeof (FlipController)) as FlipController;
         movementController2D = GetComponent<MovementController2D>();
         healthController = GetComponent<HealthController>();
-        toolController = GetComponent<ToolController>();
+        toolController = GetComponent<WeaponController>();
         inventoryController = GetComponent<InventoryController>();
     }
 
@@ -84,8 +84,8 @@ public class CharacterManager : MonoBehaviour
     public void SetItem(int index)
     {
         // if(index < inventoryController.Items.Count - 1) {
+        Debug.Log(inventoryController.Items[index]);
         toolController.Tool = inventoryController.Items[index];
         // }
     }
-
 }

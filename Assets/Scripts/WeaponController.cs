@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class ToolController : MonoBehaviour
+public class WeaponController : MonoBehaviour
 {
     private Tool tool;
 
@@ -14,7 +14,6 @@ public class ToolController : MonoBehaviour
     [SerializeField]
     private GameObject renderer;
 
-    // private Tool _tool;
     private AudioSource audioSource;
 
     private void Awake()
@@ -79,8 +78,8 @@ public class ToolController : MonoBehaviour
         }
     }
 
-    private void OnToolHits() {
-        OnHit?.Invoke();
+    private void OnToolHits(int efficacy) {
+        OnHit?.Invoke(efficacy);
     }
 
     public event Tool.OnHitDelegate OnHit;

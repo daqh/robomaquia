@@ -111,7 +111,7 @@ MonoBehaviour:
   - {x: 0.049168363, y: 0.033301026, z: 0}
   m_ShapePathHash: 378468553
   m_Mesh: {fileID: 0}
-  m_InstanceId: 69212
+  m_InstanceId: 91554
 --- !u!1 &2881200487281371263
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,13 +126,12 @@ GameObject:
   - component: {fileID: 2881200487281371253}
   - component: {fileID: 2881200487281371258}
   - component: {fileID: 2881200487281371259}
-  - component: {fileID: 2881200487281371256}
   - component: {fileID: 2881200487281371257}
-  - component: {fileID: 2881200487281371262}
   - component: {fileID: 2881200487281371249}
   - component: {fileID: 5943684665418320094}
-  - component: {fileID: 1312979242401694156}
   - component: {fileID: 6761441000105200817}
+  - component: {fileID: 8013232483096993658}
+  - component: {fileID: 43665228259124708}
   m_Layer: 0
   m_Name: Knight M
   m_TagString: Untagged
@@ -242,20 +241,6 @@ MonoBehaviour:
   maxHealth: 100
   health: 100
   damageClip: {fileID: 8300000, guid: d7beb7fa5129e6f448f955f513e89659, type: 3}
---- !u!114 &2881200487281371256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2881200487281371263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa63e3558a5c4214c8eeb54853278810, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: 0.1, y: 0.1}
-  renderer: {fileID: 2881200486094587327}
 --- !u!114 &2881200487281371257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,18 +255,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 8383097581701802640, guid: 44438719e88bf2d4ab4fd3d44b0e77b4, type: 3}
---- !u!114 &2881200487281371262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2881200487281371263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3fbbb74f23a51f47b3acbbdab060a88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &2881200487281371249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -323,18 +296,6 @@ MonoBehaviour:
   damagePopup:
     popup: {fileID: 1259858287161535568, guid: ac173b4621634ed4894f5a7cae038e97, type: 3}
     fontSizeFactor: 1
---- !u!114 &1312979242401694156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2881200487281371263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18cada6827a0eb444951b1a6f8ee5854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6761441000105200817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +308,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9eaad7a9a436b49912d551cbf34453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8013232483096993658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2881200487281371263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00263432064e11845a39b0aacd8f7dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &43665228259124708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2881200487281371263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e81d7aa8d4e5d4dae1b5a33e07c27f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0.05, y: 0.05}
+  renderer: {fileID: 2881200486094587327}
 --- !u!1 &2881200487483064908
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7448662248308163811}
   - component: {fileID: 6722178136324579734}
-  - component: {fileID: 1510559776318458276}
+  - component: {fileID: 6126774782217383888}
   m_Layer: 0
   m_Name: Looter
   m_TagString: Untagged
@@ -454,7 +441,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.083716154, y: 0.13821518}
   m_EdgeRadius: 0
---- !u!114 &1510559776318458276
+--- !u!114 &6126774782217383888
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -463,6 +450,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7233733281626410420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18cada6827a0eb444951b1a6f8ee5854, type: 3}
+  m_Script: {fileID: 11500000, guid: 597291b3a8b2d5347b9a1ee3fcffd8b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
