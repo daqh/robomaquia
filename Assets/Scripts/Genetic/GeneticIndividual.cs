@@ -14,9 +14,34 @@ public class GeneticIndividual : MonoBehaviour
     [SerializeField]
     private float velocityMultiplier = 1f;
 
+    public void OnUseWeapon(Vector2 position) {
+        usages++;
+    }
+
+    public void OnDamage(int damage) {
+        hits++;
+        totalDamage += damage;
+    }
+
+    public void Start() {
+        this.characterFactory.CharacterWeaponController.OnUseWeapon += OnUseWeapon;
+        this.characterFactory.CharacterWeaponController.OnDamage += OnDamage;
+    }
+
+    public void Update() {
+        if(characterFactory != null) {
+            lifespan += Time.deltaTime;
+        } 
+    }
+
+
+    private float lifespanWeight = 1f;
+    private float lifespan = 0f;
+    private float totalDamageWeight = 1f;
+
     public float Fitness {
         get {
-            return 0;
+            return lifespan * lifespanWeight + totalDamage * totalDamageWeight;
         } 
     }
 
@@ -49,6 +74,22 @@ public class GeneticIndividual : MonoBehaviour
             characterFactory = value;
         }
     }
+
+    public float Lifespan {
+        get {
+            return lifespan;
+        }
+    }
+
+    public float Precision {
+        get {
+            return hits / (float)usages;
+        }
+    }
+
+    private int usages = 0;
+    private int totalDamage = 0;
+    private int hits = 0;
 
 
 }

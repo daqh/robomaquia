@@ -26,6 +26,7 @@ public class CharacterFactory : MonoBehaviour
         this.effectiveCharacter = Instantiate(effectiveCharacter, transform);
         healthBar.HealthController = this.effectiveCharacter.GetComponent<HealthController>();
         this.effectiveCharacter.GetComponent<HealthController>().Rigidbody2D = GetComponent<Rigidbody2D>();
+        characterWeaponController = GetComponent<CharacterWeaponController>();
     }
 
     public GameObject EffectiveCharacter {
@@ -58,6 +59,13 @@ public class CharacterFactory : MonoBehaviour
         }
     }
 
+    public CharacterWeaponController CharacterWeaponController {
+        get {
+            return characterWeaponController;
+        }
+    }
+
+    private CharacterWeaponController characterWeaponController;
     private CharacterFactoryService characterFactoryService;
     private WeaponService weaponService;
 
