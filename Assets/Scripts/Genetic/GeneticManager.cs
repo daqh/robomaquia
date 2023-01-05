@@ -21,6 +21,14 @@ public class GeneticManager : MonoBehaviour
         Populate(initialPopulation);
     }
 
+    private int SortByLifespanDescending(GeneticIndividual a, GeneticIndividual b) {
+        return (int)Mathf.Ceil(b.Lifespan - a.Lifespan);
+    }
+
+    private int SortByFitnessDescending(GeneticIndividual a, GeneticIndividual b) {
+        return (int)Mathf.Ceil(b.Lifespan - a.Lifespan);
+    }
+
     void Update() {
         bool generationEnd = true;
         foreach(GeneticIndividual individual in this.population) {
@@ -29,16 +37,23 @@ public class GeneticManager : MonoBehaviour
             }
         }
         if(generationEnd) {
-            foreach(GeneticIndividual individual in this.population) {
-                Debug.Log(individual.Avatar + " " + individual.Fitness);
-                // Selezione
+            List<GeneticIndividual> nextPopulation = new List<GeneticIndividual>();
+            this.population.Sort(SortByLifespanDescending);
+            nextPopulation.Add(this.population[0]); // Elitismo di un individuo con lifespan migliore
+            this.population.RemoveAt(0);
+            this.population.Sort(SortByFitnessDescending);
+            for(int i = 0; i < Mathf.Floor((this.population.Count / 100f) * 66f); i++) {    // Selezione del 66% dei migliori individui (Escluso l'individuo elitario)
+                nextPopulation.Add(this.population[i]);
             }
+            // Crossover
+            Populate(nextPopulation);
+            generationEnd = false;
         }
-        Debug.Log(generationEnd);
     }
 
     private void Populate(List<GeneticIndividual> population) {
         int i = 0;
+        this.population = new List<GeneticIndividual>();
         foreach(GeneticIndividual individual in population) {
             GeneticSpawnPoint spawnPoint;
             spawnPoint = spawnPoints[i++ % spawnPoints.Count];
