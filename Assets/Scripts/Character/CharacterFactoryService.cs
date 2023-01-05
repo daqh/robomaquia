@@ -9,6 +9,8 @@ public class CharacterFactoryService : MonoBehaviour
     private GameObject knightM;
     [SerializeField]
     private GameObject knightF;
+    [SerializeField]
+    private GameObject bigDemon;
 
     void Start()
     {
@@ -26,6 +28,8 @@ public class CharacterFactoryService : MonoBehaviour
                 return knightM;
             case Avatar.KnightF:
                 return knightF;
+            case Avatar.BigDemon:
+                return bigDemon;
         }
         return null;
     }
@@ -34,6 +38,7 @@ public class CharacterFactoryService : MonoBehaviour
     {
         KnightM,
         KnightF,
+        BigDemon,
     }
 
 }

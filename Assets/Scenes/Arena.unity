@@ -14041,6 +14041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knightM: {fileID: 2274016420411212353, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
   knightF: {fileID: 6933619842434182547, guid: ae242a4090f215245b48f04f348f3302, type: 3}
+  bigDemon: {fileID: 6933619842434182547, guid: e3a1675b5ec5eb747b59e4042361a6db, type: 3}
 --- !u!4 &1052539687
 Transform:
   m_ObjectHideFlags: 0
@@ -14091,7 +14092,7 @@ MonoBehaviour:
   - {fileID: 4906759137490383679, guid: 741a512003c39d84fa8e05de402609bb, type: 3}
   - {fileID: 4906759137490383679, guid: 741a512003c39d84fa8e05de402609bb, type: 3}
   - {fileID: 2659264188901728042, guid: 6aa3e9af801fcca449548a693e293e76, type: 3}
-  - {fileID: 2659264188901728042, guid: 6aa3e9af801fcca449548a693e293e76, type: 3}
+  - {fileID: 5384204759808059249, guid: d77607112060bb44183936a4f45ed225, type: 3}
 --- !u!1 &1060056226
 GameObject:
   m_ObjectHideFlags: 0

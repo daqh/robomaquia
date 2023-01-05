@@ -28,6 +28,12 @@ public class GeneticManager : MonoBehaviour
                 generationEnd = false;
             }
         }
+        if(generationEnd) {
+            foreach(GeneticIndividual individual in this.population) {
+                Debug.Log(individual.Avatar + " " + individual.Fitness);
+                // Selezione
+            }
+        }
         Debug.Log(generationEnd);
     }
 
