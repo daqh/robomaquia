@@ -7,11 +7,14 @@ public class GeneticManager : MonoBehaviour
 
     [SerializeField]
     private CharacterFactory characterFactory;
+    [SerializeField]
+    private GeneticIndividual geneticIndividual;
 
     private List<GeneticSpawnPoint> spawnPoints = new List<GeneticSpawnPoint>();
 
     [SerializeField]
     private List<GeneticIndividual> initialPopulation = new List<GeneticIndividual>();
+
 
     public void Start() {
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Genetic Spawn Point");
@@ -45,6 +48,7 @@ public class GeneticManager : MonoBehaviour
             for(int i = 0; i < Mathf.Floor((this.population.Count / 100f) * 66f); i++) {    // Selezione del 66% dei migliori individui (Escluso l'individuo elitario)
                 nextPopulation.Add(this.population[i]);
             }
+            int nCrossover = this.population.Count - nextPopulation.Count + 1;
             // Crossover
             Populate(nextPopulation);
             generationEnd = false;

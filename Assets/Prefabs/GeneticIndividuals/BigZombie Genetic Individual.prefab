@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatar: 3
-  weapon: 0
+  weapon: 3
   velocityMultiplier: 1
   characterFactory: {fileID: 0}

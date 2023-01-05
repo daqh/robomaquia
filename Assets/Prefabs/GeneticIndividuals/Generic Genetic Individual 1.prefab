@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1826136803559062547}
   - component: {fileID: 1826136803559062546}
   m_Layer: 0
-  m_Name: Orc Genetic Individual
+  m_Name: Generic Genetic Individual 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
