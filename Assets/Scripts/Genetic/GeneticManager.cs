@@ -5,6 +5,9 @@ using UnityEngine;
 public class GeneticManager : MonoBehaviour
 {
 
+    [SerializeField]
+    private CharacterFactory characterFactory;
+
     private List<GeneticSpawnPoint> spawnPoints = new List<GeneticSpawnPoint>();
 
     [SerializeField]
@@ -18,13 +21,25 @@ public class GeneticManager : MonoBehaviour
         Populate(initialPopulation);
     }
 
+    void Update() {
+        bool generationEnd = true;
+        foreach(GeneticIndividual individual in this.population) {
+            if(individual.CharacterFactory != null) {
+                generationEnd = false;
+            }
+        }
+        Debug.Log(generationEnd);
+    }
+
     private void Populate(List<GeneticIndividual> population) {
         int i = 0;
         foreach(GeneticIndividual individual in population) {
             GeneticSpawnPoint spawnPoint;
             spawnPoint = spawnPoints[i++ % spawnPoints.Count];
-            spawnPoint.Instantiate(individual);
+            this.population.Add(spawnPoint.Instantiate(individual, characterFactory));
         }
     }
+
+    private List<GeneticIndividual> population = new List<GeneticIndividual>();
 
 }

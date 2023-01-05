@@ -5,9 +5,14 @@ using UnityEngine;
 public class GeneticSpawnPoint : MonoBehaviour
 {
 
-    public GeneticIndividual Instantiate(GeneticIndividual geneticIndividual) {
+    public GeneticIndividual Instantiate(GeneticIndividual geneticIndividual, CharacterFactory characterFactory) {
         GameObject go = Instantiate(geneticIndividual.gameObject, transform.position, Quaternion.identity);
-        return go.GetComponent<GeneticIndividual>();
+        characterFactory.Avatar = geneticIndividual.Avatar;
+        characterFactory.Weapon = geneticIndividual.Weapon;
+        GameObject character = Instantiate(characterFactory.gameObject, go.transform);
+        GeneticIndividual gi = go.GetComponent<GeneticIndividual>();
+        gi.CharacterFactory = character.GetComponent<CharacterFactory>();
+        return gi;
     }
 
 }

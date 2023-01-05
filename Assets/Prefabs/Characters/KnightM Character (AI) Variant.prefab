@@ -95,15 +95,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fieldOfViewRadius: 1.295
   fieldOfAttackRadius: 0.655
---- !u!114 &8282744288699222327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7864026115443235722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05630be20b4926b44bf009fbd2d078d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
