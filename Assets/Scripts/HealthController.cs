@@ -23,6 +23,8 @@ public class HealthController : MonoBehaviour
 
     private Animator animator;
 
+    [SerializeField]
+    private Rigidbody2D rigidbody2D;
 
     private float timeFromLastDamage = 0;
 
@@ -64,7 +66,7 @@ public class HealthController : MonoBehaviour
     public void Die()
     {
         OnDeath?.Invoke();
-        Destroy (gameObject);
+        Destroy (rigidbody2D.gameObject);
     }
 
     public bool Immune
@@ -88,6 +90,15 @@ public class HealthController : MonoBehaviour
         get
         {
             return health;
+        }
+    }
+
+    public Rigidbody2D Rigidbody2D {
+        get {
+            return rigidbody2D;
+        }
+        set {
+            rigidbody2D = value;
         }
     }
 

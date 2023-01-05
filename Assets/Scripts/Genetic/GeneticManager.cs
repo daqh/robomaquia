@@ -1,34 +1,30 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Genetic {
-    public class GeneticManager : MonoBehaviour
-    {
+public class GeneticManager : MonoBehaviour
+{
 
-        [SerializeField]
-        private GeneticIndividual[] population;
+    private List<GeneticSpawnPoint> spawnPoints = new List<GeneticSpawnPoint>();
 
-        private List<GeneticSpawnPoint> spawnPoints = new List<GeneticSpawnPoint>();
+    [SerializeField]
+    private List<GeneticIndividual> initialPopulation = new List<GeneticIndividual>();
 
-        public void Start() {
-            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Genetic Spawn Point");
-            foreach(GameObject o in gameObjects) {
-                spawnPoints.Add(o.GetComponent<GeneticSpawnPoint>());
-            }
-            Populate();
+    public void Start() {
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Genetic Spawn Point");
+        foreach(GameObject o in gameObjects) {
+            spawnPoints.Add(o.GetComponent<GeneticSpawnPoint>());
         }
-
-        private void Populate() {
-            int i = 0;
-            foreach(GeneticIndividual individual in population) {
-                GeneticSpawnPoint spawnPoint;
-                do {
-                    spawnPoint = spawnPoints[i++ % spawnPoints.Count];
-                } while(!spawnPoint.Enabled);
-                spawnPoint.Instantiate(individual);
-            }
-        }
-
+        Populate(initialPopulation);
     }
+
+    private void Populate(List<GeneticIndividual> population) {
+        int i = 0;
+        foreach(GeneticIndividual individual in population) {
+            GeneticSpawnPoint spawnPoint;
+            spawnPoint = spawnPoints[i++ % spawnPoints.Count];
+            spawnPoint.Instantiate(individual);
+        }
+    }
+
 }

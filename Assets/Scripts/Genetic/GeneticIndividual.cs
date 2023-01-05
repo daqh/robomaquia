@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Genetic {
+public class GeneticIndividual : MonoBehaviour
+{
 
-    public abstract class GeneticIndividual : MonoBehaviour
-    {
-
-        public abstract float Fitness {
-            get;
-        }
-
+    public float Fitness {
+        get {
+            return 0;
+        } 
     }
 
 }
-

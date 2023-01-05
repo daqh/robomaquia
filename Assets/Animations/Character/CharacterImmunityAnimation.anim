@@ -51,7 +51,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: Renderer
+    path: 
     classID: 212
     script: {fileID: 0}
   - curve:
@@ -88,7 +88,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: Renderer
+    path: 
     classID: 212
     script: {fileID: 0}
   - curve:
@@ -125,7 +125,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: Renderer
+    path: 
     classID: 212
     script: {fileID: 0}
   - curve:
@@ -142,7 +142,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.25
-        value: 0.29803923
+        value: 0.14901961
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -162,7 +162,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: Renderer
+    path: 
     classID: 212
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -174,7 +174,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 149930954
+      path: 0
       attribute: 304273561
       script: {fileID: 0}
       typeID: 212
@@ -182,7 +182,7 @@ AnimationClip:
       isPPtrCurve: 0
       isIntCurve: 0
     - serializedVersion: 2
-      path: 149930954
+      path: 0
       attribute: 2526845255
       script: {fileID: 0}
       typeID: 212
@@ -190,7 +190,7 @@ AnimationClip:
       isPPtrCurve: 0
       isIntCurve: 0
     - serializedVersion: 2
-      path: 149930954
+      path: 0
       attribute: 4215373228
       script: {fileID: 0}
       typeID: 212
@@ -198,7 +198,7 @@ AnimationClip:
       isPPtrCurve: 0
       isIntCurve: 0
     - serializedVersion: 2
-      path: 149930954
+      path: 0
       attribute: 2334886179
       script: {fileID: 0}
       typeID: 212
@@ -261,7 +261,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: Renderer
+    path: 
     classID: 212
     script: {fileID: 0}
   - curve:
@@ -298,7 +298,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: Renderer
+    path: 
     classID: 212
     script: {fileID: 0}
   - curve:
@@ -335,7 +335,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: Renderer
+    path: 
     classID: 212
     script: {fileID: 0}
   - curve:
@@ -352,7 +352,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.25
-        value: 0.29803923
+        value: 0.14901961
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -372,7 +372,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: Renderer
+    path: 
     classID: 212
     script: {fileID: 0}
   m_EulerEditorCurves: []

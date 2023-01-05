@@ -25,7 +25,7 @@ public class MeleeWeapon : Tool
                 if(!healthController.Immune) {
                     int actualDamage = damage + (int)Mathf.Round(Random.Range(0, Mathf.Log(damage, 2)));
                     healthController.Damage(new Damage(actualDamage, damage)); // TODO: Migliorare la generazione casuale del danno
-                    Rigidbody2D rigidbody2D = o.GetComponent<Rigidbody2D>();
+                    Rigidbody2D rigidbody2D = healthController.Rigidbody2D;
                     Vector2 bump = o.transform.position - transform.position;
                     bump.Normalize();
                     rigidbody2D.AddForce(bump * Mathf.Log(damage, 2) * shove);

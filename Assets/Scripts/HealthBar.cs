@@ -27,4 +27,13 @@ public class HealthBar : MonoBehaviour
         healthController.OnHealthChange -= OnHealthChange;    
     }
 
+    public HealthController HealthController {
+        get {
+            return healthController;
+        }
+        set {
+            healthController = value;
+        }
+    }
+
 }

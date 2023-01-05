@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7442602657319665039
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 497381782494025695, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: healthController
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505988, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505988, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.596
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505988, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505988, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.05705004
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505988, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505988, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505988, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505988, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505988, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505988, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505988, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505989, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_Name
+      value: KnightM Character (AI) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505993, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: multiplier
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087736938963714729, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087736938963714729, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 750919957382505992, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+--- !u!1 &7864026115443235722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 750919957382505989, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+  m_PrefabInstance: {fileID: 7442602657319665039}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7655643517998081847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864026115443235722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b1909c5940acbf42925f1451197a120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fieldOfViewRadius: 1.295
+  fieldOfAttackRadius: 0.655
+--- !u!114 &8282744288699222327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864026115443235722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05630be20b4926b44bf009fbd2d078d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
