@@ -11,6 +11,14 @@ public class CharacterFactoryService : MonoBehaviour
     private GameObject knightF;
     [SerializeField]
     private GameObject bigDemon;
+    [SerializeField]
+    private GameObject bigZombie;
+    [SerializeField]
+    private GameObject iceZombie;
+    [SerializeField]
+    private GameObject orc;
+    [SerializeField]
+    private GameObject chort;
 
     void Start()
     {
@@ -30,6 +38,14 @@ public class CharacterFactoryService : MonoBehaviour
                 return knightF;
             case Avatar.BigDemon:
                 return bigDemon;
+            case Avatar.BigZombie:
+                return bigZombie;
+            case Avatar.IceZombie:
+                return iceZombie;
+            case Avatar.Orc:
+                return orc;
+            case Avatar.Chort:
+                return chort;
         }
         return null;
     }
@@ -39,6 +55,10 @@ public class CharacterFactoryService : MonoBehaviour
         KnightM,
         KnightF,
         BigDemon,
+        BigZombie,
+        IceZombie,
+        Orc,
+        Chort
     }
 
 }

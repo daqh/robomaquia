@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5739718956118222275}
   - component: {fileID: 1031703469222018475}
   m_Layer: 0
-  m_Name: BigChort
+  m_Name: Chort Avatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 6933619842434182547}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: dcd7630a4d0581c48b4c68bff3b867d6, type: 2}
+  m_Controller: {fileID: 22100000, guid: adc60fbc5bbccc5499770bfd28f5fcce, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
