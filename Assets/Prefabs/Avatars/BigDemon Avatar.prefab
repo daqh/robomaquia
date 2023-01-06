@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   immunityDuration: 1
-  maxHealth: 50
-  health: 50
+  maxHealth: 10
+  health: 10
   damageClip: {fileID: 8300000, guid: 12ac67d1433d7b04087af76a4f95f7d5, type: 3}
   rigidbody2D: {fileID: 0}
 --- !u!114 &1031703469222018475

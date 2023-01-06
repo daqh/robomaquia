@@ -64,6 +64,18 @@ PrefabInstance:
       propertyPath: multiplier
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505999, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: avatar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505999, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: weapon
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382506003, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: targetTag
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5087736938963714729, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

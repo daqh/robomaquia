@@ -15,10 +15,18 @@ public class MeleeWeapon : Tool
 
     private float randomFactor = 1;
 
+    [SerializeField]
+    private string targetTag;
+
     public override event OnHitDelegate OnHit;
 
     private void OnTriggerStay2D(Collider2D other) {
         GameObject o = other.gameObject;
+        if(!string.IsNullOrEmpty(targetTag)) {
+            if(o.tag != targetTag) {
+                return;
+            }
+        }
         if(InUse) {
             HealthController healthController = o.GetComponent<HealthController>();
             if(healthController) {
@@ -32,6 +40,15 @@ public class MeleeWeapon : Tool
                     OnHit?.Invoke(actualDamage);
                 }
             }
+        }
+    }
+
+    public string TargetTag {
+        get {
+            return targetTag;
+        }
+        set {
+            targetTag = value;
         }
     }
 

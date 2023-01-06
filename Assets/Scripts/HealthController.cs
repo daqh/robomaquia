@@ -63,6 +63,11 @@ public class HealthController : MonoBehaviour
         }
     }
 
+    public void ResetHealth() {
+        health = maxHealth;
+        OnHealthChange?.Invoke(health);
+    }
+
     public void Die()
     {
         OnDeath?.Invoke();

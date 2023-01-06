@@ -60,6 +60,24 @@ public class AgentController : MonoBehaviour
         Debug.DrawLine(transform.position - transform.right * fieldOfAttackRadius, transform.position + transform.up * fieldOfAttackRadius, Color.red);
     }
 
+    public GameObject Player {
+        get {
+            return player;
+        }
+    }
+
+    public float FieldOfViewRadius {
+        get {
+            return fieldOfViewRadius;
+        }
+    }
+
+    public float FieldOfAttackRadius {
+        get {
+            return fieldOfAttackRadius;
+        }
+    }
+
     private MovementController2D movementController2D;
     private CharacterWeaponController characterWeaponController;
 

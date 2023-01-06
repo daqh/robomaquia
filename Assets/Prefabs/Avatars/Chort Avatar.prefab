@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   immunityDuration: 1
-  maxHealth: 50
-  health: 50
+  maxHealth: 10
+  health: 10
   damageClip: {fileID: 8300000, guid: 12ac67d1433d7b04087af76a4f95f7d5, type: 3}
   rigidbody2D: {fileID: 0}
 --- !u!114 &1031703469222018475
@@ -226,6 +226,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.045268387}
+  m_Offset: {x: 0, y: 0.009754032}
   serializedVersion: 2
-  m_Radius: 0.107905805
+  m_Radius: 0.05814776

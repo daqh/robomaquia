@@ -66,11 +66,11 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: e40ad995fed2f994ca5a23f2177b3e50, type: 2}
     - target: {fileID: 3463361137773840913, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: health
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3463361137773840913, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: maxHealth
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3463361137773840913, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: damageClip

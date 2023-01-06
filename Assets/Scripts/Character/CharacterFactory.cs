@@ -27,6 +27,11 @@ public class CharacterFactory : MonoBehaviour
         healthBar.HealthController = this.effectiveCharacter.GetComponent<HealthController>();
         this.effectiveCharacter.GetComponent<HealthController>().Rigidbody2D = GetComponent<Rigidbody2D>();
         characterWeaponController = GetComponent<CharacterWeaponController>();
+        movementController2D = GetComponent<MovementController2D>();
+    }
+
+    private void Start() {
+        movementController2D.Multiplier = velocityMultiplier;
     }
 
     public GameObject EffectiveCharacter {
@@ -65,8 +70,27 @@ public class CharacterFactory : MonoBehaviour
         }
     }
 
+    public float VelocityMultiplier {
+        get {
+            return velocityMultiplier;
+        }
+        set {
+            velocityMultiplier = value;
+        }
+    }
+
+    public HealthController HealthController {
+        get {
+            return this.effectiveCharacter.GetComponent<HealthController>();
+        }
+    }
+
+    [SerializeField]
+    private float velocityMultiplier = 5;
+
     private CharacterWeaponController characterWeaponController;
     private CharacterFactoryService characterFactoryService;
     private WeaponService weaponService;
+    private MovementController2D movementController2D;
 
 }

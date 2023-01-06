@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IceZombie Avatar
       objectReference: {fileID: 0}
+    - target: {fileID: 2274016420411212353, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2274016420411212356, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.16
@@ -70,11 +74,11 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: 4857369a1b146c7429e3c2a8dbd57792, type: 2}
     - target: {fileID: 3463361137773840913, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: health
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3463361137773840913, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: maxHealth
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3463361137773840913, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: damageClip

@@ -40,6 +40,15 @@ public class MovementController2D : MonoBehaviour
         }
     }
 
+    public float Multiplier {
+        get {
+            return multiplier;
+        }
+        set {
+            multiplier = value;
+        }
+    }
+
     public Action<Vector2> OnMove;
 
     private Rigidbody2D rigidbody2D;

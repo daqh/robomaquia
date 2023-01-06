@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class GeneticIndividual : MonoBehaviour
 {
@@ -26,11 +27,14 @@ public class GeneticIndividual : MonoBehaviour
     public void Start() {
         this.characterFactory.CharacterWeaponController.OnUseWeapon += OnUseWeapon;
         this.characterFactory.CharacterWeaponController.OnDamage += OnDamage;
+        this.agentController = this.characterFactory.gameObject.GetComponent<AgentController>();
     }
 
     public void Update() {
         if(characterFactory != null) {
-            lifespan += Time.deltaTime;
+            if(Vector2.Distance(characterFactory.transform.position, agentController.Player.transform.position) < agentController.FieldOfViewRadius) {
+                lifespan += Time.deltaTime;
+            }
         } 
     }
 
@@ -50,17 +54,26 @@ public class GeneticIndividual : MonoBehaviour
         get {
             return avatar;
         }
+        set {
+            avatar = value;
+        }
     }
 
     public WeaponService.Weapon Weapon {
         get {
             return weapon;
         }
+        set {
+            weapon = value;
+        }
     }
 
     public float VelocityMultiplier {
         get {
             return velocityMultiplier;
+        }
+        set {
+            velocityMultiplier = value;
         }
     }
 
@@ -84,7 +97,8 @@ public class GeneticIndividual : MonoBehaviour
 
     public float Precision {
         get {
-            return hits / (float)usages;
+            if(usages > 0) return hits / (float)usages;
+            return 0;
         }
     }
 
@@ -92,5 +106,14 @@ public class GeneticIndividual : MonoBehaviour
     private int totalDamage = 0;
     private int hits = 0;
 
+    private AgentController agentController;
+
+    #if UNITY_EDITOR
+    private void OnDrawGizmos() {
+        if(characterFactory != null) {
+            Handles.Label(characterFactory.transform.position + transform.up, Fitness.ToString());
+        }
+    }
+    #endif
 
 }

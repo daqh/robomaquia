@@ -9,8 +9,10 @@ public class GeneticSpawnPoint : MonoBehaviour
         GameObject go = Instantiate(geneticIndividual.gameObject, transform.position, Quaternion.identity);
         characterFactory.Avatar = geneticIndividual.Avatar;
         characterFactory.Weapon = geneticIndividual.Weapon;
+        characterFactory.VelocityMultiplier = geneticIndividual.VelocityMultiplier;
         GameObject character = Instantiate(characterFactory.gameObject, go.transform);
         GeneticIndividual gi = go.GetComponent<GeneticIndividual>();
+        gi.enabled = true;
         gi.CharacterFactory = character.GetComponent<CharacterFactory>();
         return gi;
     }

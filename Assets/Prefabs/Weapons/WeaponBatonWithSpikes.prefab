@@ -150,4 +150,5 @@ MonoBehaviour:
   loop: 0
   useClip: {fileID: 8300000, guid: 62da4c9ba90de8f4da62c6b70a411149, type: 3}
   speed: 1.7
-  damage: 5
+  damage: 10
+  shove: 1
