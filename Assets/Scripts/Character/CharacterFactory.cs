@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterFactory : MonoBehaviour
 {
@@ -32,6 +33,12 @@ public class CharacterFactory : MonoBehaviour
 
     private void Start() {
         movementController2D.Multiplier = velocityMultiplier;
+    }
+
+    private void Destroy() {
+        if(gameObject.tag == "Player") {
+            SceneManager.LoadScene("Arena", LoadSceneMode.Single);
+        }
     }
 
     public GameObject EffectiveCharacter {

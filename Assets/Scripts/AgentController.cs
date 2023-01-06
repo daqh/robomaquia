@@ -34,7 +34,11 @@ public class AgentController : MonoBehaviour
         bool playerInFieldOfView = Vector2.Distance(player.transform.position, transform.position) < fieldOfViewRadius;
         bool playerInFieldOfAttack = Vector2.Distance(player.transform.position, transform.position) < fieldOfAttackRadius;
         if(playerInFieldOfView) {
-            movementController2D.Move(player.transform.position - transform.position);
+            if(Vector2.Distance(player.transform.position, transform.position) < 0.3f) {
+                movementController2D.Move(-player.transform.position + transform.position);
+            } else {
+                movementController2D.Move(player.transform.position - transform.position);
+            }
             lastPlayerPosition = player.transform.position;
         }
         if(playerInFieldOfAttack) {

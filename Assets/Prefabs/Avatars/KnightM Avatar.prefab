@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8080341262351646123}
   - component: {fileID: 3463361137773840913}
   - component: {fileID: 8207422978575798905}
+  - component: {fileID: 2640701103154698068}
   m_Layer: 0
   m_Name: KnightM Avatar
   m_TagString: Player
@@ -181,6 +182,18 @@ MonoBehaviour:
   damagePopup:
     popup: {fileID: 1259858287161535568, guid: ac173b4621634ed4894f5a7cae038e97, type: 3}
     fontSizeFactor: 1
+--- !u!114 &2640701103154698068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2274016420411212353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65740c0b48a48b4eb2833423cb4f138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2274016420700881856
 GameObject:
   m_ObjectHideFlags: 0

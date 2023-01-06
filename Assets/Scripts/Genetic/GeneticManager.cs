@@ -13,7 +13,14 @@ public class GeneticManager : MonoBehaviour
     [SerializeField]
     private List<GeneticIndividual> initialPopulation = new List<GeneticIndividual>();
 
+    [SerializeField]
+    private Coin coin;
+
     private int generationCount = 0;
+
+    private void Awake() {
+        characterFactoryService = GetComponent<CharacterFactoryService>();
+    }
 
     public void Start() {
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Genetic Spawn Point");
@@ -39,16 +46,18 @@ public class GeneticManager : MonoBehaviour
             }
         }
         if(generationEnd) {
+            float totalFitness = 0;
             float maxFitness = 0;
             float avgFitness = 0;
             float minFitness = this.population[0].Fitness;
             foreach(GeneticIndividual gi in this.population) {
+                totalFitness += gi.Fitness;
                 avgFitness += gi.Fitness / this.population.Count;
                 if(maxFitness < gi.Fitness) maxFitness = gi.Fitness;
                 if(minFitness > gi.Fitness) minFitness = gi.Fitness;
                 Destroy(gi.gameObject);
             }
-            Debug.Log("End of generation " + generationCount + " / AvgFitness = " + avgFitness + " / MaxFitness = " + maxFitness + " / MinFitness = " + minFitness);
+            Debug.Log("End of generation " + generationCount + " / AvgFitness = " + avgFitness + " / MaxFitness = " + maxFitness + " / MinFitness = " + minFitness + " / TotalFitness = " + totalFitness);
             List<GeneticIndividual> nextPopulation = new List<GeneticIndividual>();
             this.population.Sort(SortByLifespanDescending);
             nextPopulation.Add(this.population[0]); // Elitismo di un individuo con lifespan migliore
@@ -62,15 +71,17 @@ public class GeneticManager : MonoBehaviour
             for(int i = 0; i <= nCrossover; i++) {
                 GameObject go = new GameObject("Crossover " + i);
                 GeneticIndividual gi = go.AddComponent<GeneticIndividual>();
+                gi.Coin = coin;
                 gi.Avatar = this.population[i].Avatar;
                 gi.Weapon = this.population[i + 1].Weapon;
-                gi.VelocityMultiplier = this.population[i].VelocityMultiplier;
+                gi.VelocityMultiplier = this.population[i + 1].VelocityMultiplier;
                 Destroy(go);
                 nextPopulation.Add(gi);
             }
             // Mutation
             foreach(GeneticIndividual individual in this.population) {
-                individual.VelocityMultiplier += Random.Range(-2f, 2f);
+                individual.VelocityMultiplier += Random.Range(-3f, 3f);
+                // individual.Avatar = characterFactoryService.GetRandomCharcter();
             }
             RespawnPlayer();
             Populate(nextPopulation);
@@ -97,5 +108,6 @@ public class GeneticManager : MonoBehaviour
     }
 
     private List<GeneticIndividual> population = new List<GeneticIndividual>();
+    private CharacterFactoryService characterFactoryService;
 
 }

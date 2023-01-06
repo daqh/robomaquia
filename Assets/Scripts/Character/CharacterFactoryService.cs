@@ -30,6 +30,11 @@ public class CharacterFactoryService : MonoBehaviour
         
     }
 
+    public Avatar GetRandomCharcter() {
+        Avatar avatar = (Avatar)Random.Range(0, 7);
+        return avatar;
+    }
+
     public GameObject GetCharacter(Avatar avatar) {
         switch(avatar) {
             case Avatar.KnightM:

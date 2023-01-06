@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd2e1f97835cb74c8a4f1e225c60712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  immunityDuration: 1
+  immunityDuration: 0.5
   maxHealth: 10
   health: 10
   damageClip: {fileID: 8300000, guid: 12ac67d1433d7b04087af76a4f95f7d5, type: 3}

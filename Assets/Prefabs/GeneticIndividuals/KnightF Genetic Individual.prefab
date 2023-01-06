@@ -46,5 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avatar: 1
   weapon: 1
+  coin: {fileID: 1530887500873329626, guid: 07547b704b802484fb434250bf54e8d5, type: 3}
   velocityMultiplier: 10
   characterFactory: {fileID: 0}

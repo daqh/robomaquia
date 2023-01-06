@@ -13,6 +13,9 @@ public class GeneticIndividual : MonoBehaviour
     private WeaponService.Weapon weapon;
 
     [SerializeField]
+    private Coin coin;
+
+    [SerializeField]
     private float velocityMultiplier = 1f;
 
     public void OnUseWeapon(Vector2 position) {
@@ -30,14 +33,32 @@ public class GeneticIndividual : MonoBehaviour
         this.agentController = this.characterFactory.gameObject.GetComponent<AgentController>();
     }
 
+    private bool beenAlive = false;
+    private Vector2 lastPosition;
+
     public void Update() {
         if(characterFactory != null) {
-            if(Vector2.Distance(characterFactory.transform.position, agentController.Player.transform.position) < agentController.FieldOfViewRadius) {
+            beenAlive = true;
+            lastPosition = characterFactory.transform.position;
+            if(Vector2.Distance(characterFactory.transform.position, agentController.Player.transform.position) < agentController.FieldOfAttackRadius) {
                 lifespan += Time.deltaTime;
             }
-        } 
+        } else {
+            if(beenAlive) {
+                OnDeath();
+                beenAlive = false;
+            }
+        }
     }
 
+    private void OnDeath()
+    {
+        for (int i = 0; i < Mathf.Log(Fitness, 2); i++)
+        {
+            Coin c = Instantiate(coin, lastPosition, Quaternion.identity);
+            c.Rigidbody2D.AddForce(new Vector2(Random.Range(-10, 10), Random.Range(-10, 10)).normalized * Random.Range(10, 350));
+        }
+    }
 
     private float lifespanWeight = 1f;
     private float lifespan = 0f;
@@ -74,6 +95,15 @@ public class GeneticIndividual : MonoBehaviour
         }
         set {
             velocityMultiplier = value;
+        }
+    }
+
+    public Coin Coin {
+        get {
+            return coin;
+        }
+        set {
+            coin = value;
         }
     }
 

@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 8887580950077134543}
   - component: {fileID: 8887580950077134528}
   - component: {fileID: 8887580950077134542}
-  - component: {fileID: 8887580950077134541}
   - component: {fileID: 8887580950077134540}
   - component: {fileID: 8887580950077134539}
   - component: {fileID: 8887580950077134537}
   - component: {fileID: 8887580950077134538}
+  - component: {fileID: 1530887500873329626}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Lootable
@@ -110,21 +110,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8887580950077134541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8887580950077134529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9b055c0713835247a11ce8c81fdaaaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTag: Player
-  deelay: 0.5
-  onLootClip: {fileID: 8300000, guid: c503f5bd5e37f2a47bdd75507be30787, type: 3}
 --- !u!50 &8887580950077134540
 Rigidbody2D:
   serializedVersion: 4
@@ -4943,3 +4928,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &1530887500873329626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8887580950077134529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7a948a0502a33499e294fe6db0f91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTag: Player
+  deelay: 1
+  onLootClip: {fileID: 8300000, guid: c503f5bd5e37f2a47bdd75507be30787, type: 3}

@@ -103,6 +103,7 @@ MonoBehaviour:
   weapon: 0
   effectiveCharacter: {fileID: 1577702822227501693}
   healthBar: {fileID: 497381782494025695}
+  velocityMultiplier: 5
 --- !u!114 &750919957382505997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133105aac26f4f04b807a0da5e5c1483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTag: 
 --- !u!1 &750919957752012943
 GameObject:
   m_ObjectHideFlags: 0
