@@ -32,6 +32,12 @@ public class WeaponService : MonoBehaviour
         Machete
     }
 
+
+    public Weapon GetRandomWeapon() {
+        Weapon weapon = (Weapon)Random.Range(0, 6);
+        return weapon;
+    }
+
     public MeleeWeapon GetMeleeWeapon(Weapon weapon)
     {
         switch (weapon)

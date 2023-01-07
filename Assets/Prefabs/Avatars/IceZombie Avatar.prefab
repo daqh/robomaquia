@@ -88,6 +88,50 @@ PrefabInstance:
       propertyPath: immunityDuration
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
+      propertyPath: m_InstanceId
+      value: -629510
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
+      propertyPath: m_CastsShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
+      propertyPath: m_ShapePathHash
+      value: -1744886147
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
+      propertyPath: m_ShapePath.Array.data[0].x
+      value: -0.017737515
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
+      propertyPath: m_ShapePath.Array.data[0].y
+      value: 0.015671536
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
+      propertyPath: m_ShapePath.Array.data[1].x
+      value: -0.018743768
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
+      propertyPath: m_ShapePath.Array.data[1].y
+      value: 0.14004615
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
+      propertyPath: m_ShapePath.Array.data[2].x
+      value: 0.017565161
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
+      propertyPath: m_ShapePath.Array.data[2].y
+      value: 0.14088005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
+      propertyPath: m_ShapePath.Array.data[3].x
+      value: 0.018571414
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
+      propertyPath: m_ShapePath.Array.data[3].y
+      value: 0.01650542
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2640701103154698068, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
     m_AddedGameObjects: []

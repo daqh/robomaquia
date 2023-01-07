@@ -20,6 +20,7 @@ public class GeneticManager : MonoBehaviour
 
     private void Awake() {
         characterFactoryService = GetComponent<CharacterFactoryService>();
+        weaponService = GetComponent<WeaponService>();
     }
 
     public void Start() {
@@ -50,11 +51,20 @@ public class GeneticManager : MonoBehaviour
             float maxFitness = 0;
             float avgFitness = 0;
             float minFitness = this.population[0].Fitness;
+            //
+            float maxLifespan = 0;
+            float minLifespan = this.population[0].TotalDamage;
+            int maxTotalDamage = 0;
+            int minTotalDamage = this.population[0].TotalDamage;
             foreach(GeneticIndividual gi in this.population) {
                 totalFitness += gi.Fitness;
                 avgFitness += gi.Fitness / this.population.Count;
                 if(maxFitness < gi.Fitness) maxFitness = gi.Fitness;
                 if(minFitness > gi.Fitness) minFitness = gi.Fitness;
+                if(maxTotalDamage < gi.TotalDamage) maxTotalDamage = gi.TotalDamage;
+                if(minTotalDamage > gi.TotalDamage) minTotalDamage = gi.TotalDamage;
+                if(maxLifespan < gi.Lifespan) maxLifespan = gi.Lifespan;
+                if(minLifespan > gi.Lifespan) minLifespan = gi.Lifespan;
                 Destroy(gi.gameObject);
             }
             Debug.Log("End of generation " + generationCount + " / AvgFitness = " + avgFitness + " / MaxFitness = " + maxFitness + " / MinFitness = " + minFitness + " / TotalFitness = " + totalFitness);
@@ -63,13 +73,20 @@ public class GeneticManager : MonoBehaviour
             nextPopulation.Add(this.population[0]); // Elitismo di un individuo con lifespan migliore
             this.population.RemoveAt(0);
             this.population.Sort(SortByFitnessDescending);
-            for(int i = 0; i < Mathf.Floor((this.population.Count / 100f) * 55f); i++) {    // Selezione del 66% dei migliori individui (Escluso l'individuo elitario)
-                nextPopulation.Add(this.population[i]);
+            List<GeneticIndividual> selectedIndividuals = new List<GeneticIndividual>();
+            for(int i = 0; i < this.population.Count; i++) {    // Selezione del 66% dei migliori individui (Escluso l'individuo elitario)
+                if(i < Mathf.Floor((this.population.Count / 100f) * 66f)) {
+                    this.population[i].gameObject.name = "Selected Individual " + i;
+                    nextPopulation.Add(this.population[i]);
+                    selectedIndividuals.Add(this.population[i]);
+                } else {
+                    Destroy(this.population[i]);
+                }
             }
             // Crossover
             int nCrossover = this.population.Count - nextPopulation.Count + 1;
             for(int i = 0; i <= nCrossover; i++) {
-                GameObject go = new GameObject("Crossover " + i);
+                GameObject go = new GameObject("Crossover Individual " + i);
                 GeneticIndividual gi = go.AddComponent<GeneticIndividual>();
                 gi.Coin = coin;
                 gi.Avatar = this.population[i].Avatar;
@@ -79,9 +96,22 @@ public class GeneticManager : MonoBehaviour
                 nextPopulation.Add(gi);
             }
             // Mutation
-            foreach(GeneticIndividual individual in this.population) {
-                individual.VelocityMultiplier += Random.Range(-3f, 3f);
-                // individual.Avatar = characterFactoryService.GetRandomCharcter();
+            for(int i = (int)Mathf.Floor((selectedIndividuals.Count / 100f) * 66f); i < selectedIndividuals.Count; i++) {    // Selezione del 66% dei migliori individui (Escluso l'individuo elitario)
+                GeneticIndividual individual = selectedIndividuals[i];
+                individual.gameObject.name = "Muted Individual " + i;
+                float normalizedLifespan = maxLifespan == minLifespan ? 0 : ((individual.Lifespan - minLifespan)*1)/(maxLifespan-minLifespan);
+                float normalizedTotalDamage = maxTotalDamage == minTotalDamage ? 0 : ((individual.TotalDamage - minTotalDamage)*1)/(maxTotalDamage-minTotalDamage);
+                // Debug.Log(normalizedLifespan + " / " + normalizedTotalDamage + " / " + individual.TotalDamage + " / " + individual.Lifespan);
+                individual.VelocityMultiplier += Random.Range(-1f, 1f);
+                if(normalizedTotalDamage < normalizedLifespan) {
+                    WeaponService.Weapon weapon = weaponService.GetRandomWeapon();
+                    Debug.Log("Setting weapon " + weapon + " to " + individual);
+                    individual.Weapon = weapon;
+                } else {
+                    CharacterFactoryService.Avatar avatar = characterFactoryService.GetRandomCharacter();
+                    Debug.Log("Setting avatar " + avatar + " to " + individual);
+                    individual.Avatar = avatar;
+                }
             }
             RespawnPlayer();
             Populate(nextPopulation);
@@ -109,5 +139,6 @@ public class GeneticManager : MonoBehaviour
 
     private List<GeneticIndividual> population = new List<GeneticIndividual>();
     private CharacterFactoryService characterFactoryService;
+    private WeaponService weaponService;
 
 }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3463361137773840913}
   - component: {fileID: 8207422978575798905}
   - component: {fileID: 2640701103154698068}
+  - component: {fileID: 6373574540374685885}
   m_Layer: 0
   m_Name: KnightM Avatar
   m_TagString: Player
@@ -37,7 +38,7 @@ Transform:
   m_Children:
   - {fileID: 2274016420700881857}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2274016420411212359
 SpriteRenderer:
@@ -163,8 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   immunityDuration: 1
-  maxHealth: 100
-  health: 100
+  maxHealth: 70
+  health: 50
   damageClip: {fileID: 8300000, guid: a3451a08a69938d4295034c05229b64d, type: 3}
   rigidbody2D: {fileID: 0}
 --- !u!114 &8207422978575798905
@@ -194,6 +195,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65740c0b48a48b4eb2833423cb4f138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6373574540374685885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2274016420411212353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: d328c18cf1309af61dbd29c5c9398dd1000000000b78a9e0af34e536
+  m_ShapePath:
+  - {x: -0.050813857, y: 0.015010007, z: 0}
+  - {x: -0.05248164, y: 0.15658432, z: 0}
+  - {x: 0.04997997, y: 0.15741822, z: 0}
+  - {x: 0.051647753, y: 0.015843898, z: 0}
+  m_ShapePathHash: -303942629
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 65550
 --- !u!1 &2274016420700881856
 GameObject:
   m_ObjectHideFlags: 0

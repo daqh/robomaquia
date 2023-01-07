@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1122773931221127801}
   - component: {fileID: 5739718956118222275}
   - component: {fileID: 1031703469222018475}
+  - component: {fileID: 1121960449054743138}
   m_Layer: 0
   m_Name: Chort Avatar
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 6933619843219303443}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6933619842434182549
 SpriteRenderer:
@@ -181,6 +182,33 @@ MonoBehaviour:
   damagePopup:
     popup: {fileID: 1259858287161535568, guid: ac173b4621634ed4894f5a7cae038e97, type: 3}
     fontSizeFactor: 1
+--- !u!114 &1121960449054743138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6933619842434182547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: d328c18cf1309af61dbd29c5c9398dd1000000000b78a9e0af34e536
+  m_ShapePath:
+  - {x: -0.021045871, y: 0.011463303, z: 0}
+  - {x: -0.018589444, y: 0.11717889, z: 0}
+  - {x: 0.025139913, y: 0.1188165, z: 0}
+  - {x: 0.022683486, y: 0.013100922, z: 0}
+  m_ShapePathHash: -1453042367
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -626504
 --- !u!1 &6933619843219303442
 GameObject:
   m_ObjectHideFlags: 0

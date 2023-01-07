@@ -30,8 +30,8 @@ public class CharacterFactoryService : MonoBehaviour
         
     }
 
-    public Avatar GetRandomCharcter() {
-        Avatar avatar = (Avatar)Random.Range(0, 7);
+    public Avatar GetRandomCharacter() {
+        Avatar avatar = (Avatar)Random.Range(2, 7);
         return avatar;
     }
 
