@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
+using System.Threading;
 
 public class GeneticManager : MonoBehaviour
 {

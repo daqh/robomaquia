@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
+using Pathfinding;
 
 [RequireComponent(typeof(MovementController2D))]
 [RequireComponent(typeof(CharacterWeaponController))]
@@ -18,8 +19,6 @@ public class AgentController : MonoBehaviour
 
     private GameObject player;
 
-    private static Vector2 lastPlayerPosition;
-
     private NavigationMap navigationMap;
 
     private void Awake() {
@@ -35,14 +34,24 @@ public class AgentController : MonoBehaviour
         destination = navigationMap.FindClosestPoint(transform.position);
     }
 
+    private Vector2 playerPosition;
+
     private void LateUpdate() {
         bool playerInFieldOfView = Vector2.Distance(player.transform.position, transform.position) < fieldOfViewRadius;
-        if(playerInFieldOfView) {
+        bool playerInFieldOfAttack = Vector2.Distance(player.transform.position, transform.position) < fieldOfAttackRadius;
+        if(playerInFieldOfAttack) {
+            if(player.transform.position.y < transform.position.y) {
+                Debug.DrawLine(transform.position, player.transform.position, Color.green);
+                movementController2D.Move(player.transform.position - transform.position);
+            }
+            characterWeaponController.Use(player.transform.position);
+        } else if(playerInFieldOfView) {
+            Debug.DrawLine(transform.position, player.transform.position, Color.green);
             movementController2D.Move(player.transform.position - transform.position);
         } else {
-            Debug.DrawLine(destination.transform.position, transform.position, Color.green);
             if(Vector2.Distance(transform.position, destination.transform.position) > 0.2f) {
                 movementController2D.Move(destination.transform.position - transform.position);
+                Debug.DrawLine(transform.position, destination.transform.position, Color.green);
             } else {
                 destination = navigationMap.FindNextPoint(destination, this);
             }
@@ -66,6 +75,11 @@ public class AgentController : MonoBehaviour
         // }
     }
 
+    // private void OnCollisionStay2D(Collision2D col) {
+    //     destination = navigationMap.FindNextPoint(destination, this);
+    // }
+
+
     void OnDrawGizmos()
     {
         Debug.DrawLine(transform.position + transform.up * fieldOfViewRadius, transform.position + transform.right * fieldOfViewRadius, Color.blue);
@@ -74,8 +88,7 @@ public class AgentController : MonoBehaviour
         Debug.DrawLine(transform.position - transform.right * fieldOfViewRadius, transform.position + transform.up * fieldOfViewRadius, Color.blue);
 
         Debug.DrawLine(transform.position + transform.up * fieldOfAttackRadius, transform.position + transform.right * fieldOfAttackRadius, Color.red);
-        Debug.DrawLine(transform.position + transform.right * fieldOfAttackRadius, transform.position - transform.up * fieldOfAttackRadius, Color.red);
-        Debug.DrawLine(transform.position - transform.up * fieldOfAttackRadius, transform.position - transform.right * fieldOfAttackRadius, Color.red);
+        Debug.DrawLine(transform.position - transform.right * fieldOfAttackRadius, transform.position + transform.right * fieldOfAttackRadius, Color.red);
         Debug.DrawLine(transform.position - transform.right * fieldOfAttackRadius, transform.position + transform.up * fieldOfAttackRadius, Color.red);
     }
 
@@ -94,6 +107,15 @@ public class AgentController : MonoBehaviour
     public float FieldOfAttackRadius {
         get {
             return fieldOfAttackRadius;
+        }
+    }
+
+    public Vector2 PlayerPosition {
+        get {
+            return playerPosition;
+        }
+        set {
+            playerPosition = value;
         }
     }
 

@@ -63,7 +63,7 @@ public class GeneticIndividual : MonoBehaviour
     private float lifespanWeight = 1f;
     private float lifespan = 0f;
     private float totalDamageWeight = 1.5f;
-    private float precisionWeight = 1f;
+    private float precisionWeight = 25f;
 
     public float Fitness {
         get {

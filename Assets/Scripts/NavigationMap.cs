@@ -58,20 +58,6 @@ public class NavigationMap : MonoBehaviour
 
     public float GetPathCost(NavigationPoint a, NavigationPoint b) {
         return Vector2.Distance(a.transform.position, b.transform.position);
-        // Queue<NavigationPoint> queue = new Queue<NavigationPoint>();
-        // List<NavigationPoint> explored = new List<NavigationPoint>();
-        // queue.Enqueue(a);
-        // explored.Add(a);
-        // while(queue.Count > 0) {
-        //     NavigationPoint np = queue.Dequeue();
-        //     // Se np == b, ho finito
-        //     foreach(NavigationPoint neighbour in GetNeighbours(np)) {
-        //         if(!explored.Contains(neighbour)) {
-        //             explored.Add(neighbour);
-        //             queue.Enqueue(neighbour);
-        //         }
-        //     }
-        // }
     }
 
     public List<NavigationPoint> GetNeighbours(NavigationPoint navigationPoint) {

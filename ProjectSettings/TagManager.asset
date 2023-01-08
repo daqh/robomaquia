@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Lootable
   - Genetic Spawn Point
+  - Navigation Map
+  - Navigation Point
+  - Agent
   layers:
   - Default
   - TransparentFX
@@ -40,11 +43,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Walls
-    uniqueID: 2361469139
-    locked: 0
   - name: Decals
     uniqueID: 4137300209
+    locked: 0
+  - name: Walls
+    uniqueID: 2361469139
     locked: 0
   - name: Ground
     uniqueID: 3307846941
