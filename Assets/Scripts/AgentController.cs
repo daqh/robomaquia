@@ -20,35 +20,46 @@ public class AgentController : MonoBehaviour
 
     private static Vector2 lastPlayerPosition;
 
+    private NavigationMap navigationMap;
+
     private void Awake() {
         player = GameObject.FindWithTag("Player");
         movementController2D = GetComponent<MovementController2D>();
         characterWeaponController = GetComponent<CharacterWeaponController>();
+        navigationMap = GameObject.FindWithTag("Navigation Map").GetComponent<NavigationMap>();
     }
 
-    private void Start() {
+    private NavigationPoint destination;
 
+    private void Start() {
+        destination = navigationMap.FindClosestPoint(transform.position);
     }
 
     private void LateUpdate() {
-        bool playerInFieldOfView = Vector2.Distance(player.transform.position, transform.position) < fieldOfViewRadius;
-        bool playerInFieldOfAttack = Vector2.Distance(player.transform.position, transform.position) < fieldOfAttackRadius;
-        if(playerInFieldOfView) {
-            if(Vector2.Distance(player.transform.position, transform.position) < 0.3f) {
-                movementController2D.Move(-player.transform.position + transform.position);
-            } else {
-                movementController2D.Move(player.transform.position - transform.position);
-            }
-            lastPlayerPosition = player.transform.position;
+        if(Vector2.Distance(transform.position, destination.transform.position) > 0.2f) {
+            movementController2D.Move(destination.transform.position - transform.position);
+        } else {
+            // L'agente è arrivato al punto
+            Debug.Log(navigationMap.FindNextPoint(destination, this));
         }
-        if(playerInFieldOfAttack) {
-            characterWeaponController.Use(player.transform.position);
-        }
-        if(!playerInFieldOfView && !playerInFieldOfAttack) {
-            if(lastPlayerPosition != null) {
-                movementController2D.Move(lastPlayerPosition - (Vector2)transform.position);
-            }
-        }
+        // bool playerInFieldOfView = Vector2.Distance(player.transform.position, transform.position) < fieldOfViewRadius;
+        // bool playerInFieldOfAttack = Vector2.Distance(player.transform.position, transform.position) < fieldOfAttackRadius;
+        // if(playerInFieldOfView) {
+        //     if(Vector2.Distance(player.transform.position, transform.position) < 0.3f) {
+        //         movementController2D.Move(-player.transform.position + transform.position);
+        //     } else {
+        //         movementController2D.Move(player.transform.position - transform.position);
+        //     }
+        //     lastPlayerPosition = player.transform.position;
+        // }
+        // if(playerInFieldOfAttack) {
+        //     characterWeaponController.Use(player.transform.position);
+        // }
+        // if(!playerInFieldOfView && !playerInFieldOfAttack) {
+        //     if(lastPlayerPosition != null) {
+        //         movementController2D.Move(lastPlayerPosition - (Vector2)transform.position);
+        //     }
+        // }
     }
 
     void OnDrawGizmos()
