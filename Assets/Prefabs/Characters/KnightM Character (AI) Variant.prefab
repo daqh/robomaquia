@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KnightM Character (AI) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505989, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_TagString
+      value: Agent
+      objectReference: {fileID: 0}
     - target: {fileID: 750919957382505993, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
       propertyPath: multiplier
       value: 5
@@ -71,6 +75,10 @@ PrefabInstance:
     - target: {fileID: 750919957382505999, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
       propertyPath: weapon
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505999, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: velocityMultiplier
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 750919957382506003, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
       propertyPath: targetTag
@@ -105,5 +113,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1909c5940acbf42925f1451197a120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldOfViewRadius: 1.295
-  fieldOfAttackRadius: 0.655
+  fieldOfViewRadius: 0.723
+  fieldOfAttackRadius: 0.381

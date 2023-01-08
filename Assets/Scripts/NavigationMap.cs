@@ -41,9 +41,49 @@ public class NavigationMap : MonoBehaviour
     }
 
     public NavigationPoint FindNextPoint(NavigationPoint point, AgentController agent) {
-        foreach(Edge edge in edges) {
-            
+        List<NavigationPoint> neighbours = GetNeighbours(point);
+        NavigationPoint bestNavigationPoint = neighbours[UnityEngine.Random.Range(0, neighbours.Count)];
+        GameObject[] agents = GameObject.FindGameObjectsWithTag("Agent");
+        foreach(NavigationPoint np in neighbours) {
+            if(np == point) continue;
+            float pathCost = GetPathCost(point, np);
+            float minDistanceFromAgent = np.MinDistanceFromAgent(agent);
+            float priorityFactor = (minDistanceFromAgent * agents.Length) / pathCost;
+            if(priorityFactor > (bestNavigationPoint.MinDistanceFromAgent(agent) * agents.Length) / GetPathCost(point, bestNavigationPoint)) {
+                bestNavigationPoint = np;
+            }
         }
+        return bestNavigationPoint;
+    }
+
+    public float GetPathCost(NavigationPoint a, NavigationPoint b) {
+        return Vector2.Distance(a.transform.position, b.transform.position);
+        // Queue<NavigationPoint> queue = new Queue<NavigationPoint>();
+        // List<NavigationPoint> explored = new List<NavigationPoint>();
+        // queue.Enqueue(a);
+        // explored.Add(a);
+        // while(queue.Count > 0) {
+        //     NavigationPoint np = queue.Dequeue();
+        //     // Se np == b, ho finito
+        //     foreach(NavigationPoint neighbour in GetNeighbours(np)) {
+        //         if(!explored.Contains(neighbour)) {
+        //             explored.Add(neighbour);
+        //             queue.Enqueue(neighbour);
+        //         }
+        //     }
+        // }
+    }
+
+    public List<NavigationPoint> GetNeighbours(NavigationPoint navigationPoint) {
+        List<NavigationPoint> navigationPoints = new List<NavigationPoint>();
+        foreach(Edge edge in edges) {
+            if(edge.A == navigationPoint) {
+                navigationPoints.Add(edge.B);
+            } else if(edge.B == navigationPoint) {
+                navigationPoints.Add(edge.A);
+            }
+        }
+        return navigationPoints;
     }
 
     public NavigationPoint FindClosestPoint(Vector2 position) {
@@ -55,7 +95,6 @@ public class NavigationMap : MonoBehaviour
         }
         return closestPoint;
     }
-
 
     void Start()
     {

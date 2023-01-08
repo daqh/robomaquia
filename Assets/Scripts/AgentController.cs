@@ -36,13 +36,17 @@ public class AgentController : MonoBehaviour
     }
 
     private void LateUpdate() {
-        if(Vector2.Distance(transform.position, destination.transform.position) > 0.2f) {
-            movementController2D.Move(destination.transform.position - transform.position);
+        bool playerInFieldOfView = Vector2.Distance(player.transform.position, transform.position) < fieldOfViewRadius;
+        if(playerInFieldOfView) {
+            movementController2D.Move(player.transform.position - transform.position);
         } else {
-            // L'agente è arrivato al punto
-            Debug.Log(navigationMap.FindNextPoint(destination, this));
+            Debug.DrawLine(destination.transform.position, transform.position, Color.green);
+            if(Vector2.Distance(transform.position, destination.transform.position) > 0.2f) {
+                movementController2D.Move(destination.transform.position - transform.position);
+            } else {
+                destination = navigationMap.FindNextPoint(destination, this);
+            }
         }
-        // bool playerInFieldOfView = Vector2.Distance(player.transform.position, transform.position) < fieldOfViewRadius;
         // bool playerInFieldOfAttack = Vector2.Distance(player.transform.position, transform.position) < fieldOfAttackRadius;
         // if(playerInFieldOfView) {
         //     if(Vector2.Distance(player.transform.position, transform.position) < 0.3f) {

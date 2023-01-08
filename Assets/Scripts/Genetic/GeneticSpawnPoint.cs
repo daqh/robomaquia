@@ -12,6 +12,7 @@ public class GeneticSpawnPoint : MonoBehaviour
         characterFactory.VelocityMultiplier = geneticIndividual.VelocityMultiplier;
         GameObject character = Instantiate(characterFactory.gameObject, go.transform);
         GeneticIndividual gi = go.GetComponent<GeneticIndividual>();
+        character.name = gi.name;
         gi.enabled = true;
         gi.CharacterFactory = character.GetComponent<CharacterFactory>();
         return gi;
