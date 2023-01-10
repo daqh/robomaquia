@@ -150,6 +150,6 @@ MonoBehaviour:
   loop: 0
   useClip: {fileID: 8300000, guid: 88cfc727d3e41af438c27ba3a68d7c76, type: 3}
   speed: 8
-  damage: 1
+  damage: 25
   shove: 0.014
   targetTag: 

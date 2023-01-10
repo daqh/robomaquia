@@ -19,6 +19,10 @@ public class CharacterFactoryService : MonoBehaviour
     private GameObject orc;
     [SerializeField]
     private GameObject chort;
+    [SerializeField]
+    private GameObject lizard;
+    [SerializeField]
+    private GameObject necromancer;
 
     void Start()
     {
@@ -31,7 +35,7 @@ public class CharacterFactoryService : MonoBehaviour
     }
 
     public Avatar GetRandomCharacter() {
-        Avatar avatar = (Avatar)Random.Range(2, 7);
+        Avatar avatar = (Avatar)Random.Range(2, 9);
         return avatar;
     }
 
@@ -51,6 +55,10 @@ public class CharacterFactoryService : MonoBehaviour
                 return orc;
             case Avatar.Chort:
                 return chort;
+            case Avatar.Lizard:
+                return lizard;
+            case Avatar.Necromancer:
+                return necromancer;
         }
         return null;
     }
@@ -63,7 +71,9 @@ public class CharacterFactoryService : MonoBehaviour
         BigZombie,
         IceZombie,
         Orc,
-        Chort
+        Chort,
+        Lizard,
+        Necromancer
     }
 
 }

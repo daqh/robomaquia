@@ -22,6 +22,15 @@ public class WeaponService : MonoBehaviour
     [SerializeField]
     private MeleeWeapon machete;
 
+    [SerializeField]
+    private MeleeWeapon cleaver;
+
+    [SerializeField]
+    private MeleeWeapon knife;
+
+    [SerializeField]
+    private MeleeWeapon redMagicStaff;
+
     public enum Weapon
     {
         AnimeSword,
@@ -29,12 +38,15 @@ public class WeaponService : MonoBehaviour
         BatonWithSpikes,
         BigHammer,
         DuelSword,
-        Machete
+        Machete,
+        Cleaver,
+        Knife,
+        RedMagicStaff
     }
 
 
     public Weapon GetRandomWeapon() {
-        Weapon weapon = (Weapon)Random.Range(0, 6);
+        Weapon weapon = (Weapon)Random.Range(0, 9);
         return weapon;
     }
 
@@ -54,6 +66,12 @@ public class WeaponService : MonoBehaviour
                 return duelSword;
             case Weapon.Machete:
                 return machete;
+            case Weapon.Cleaver:
+                return cleaver;
+            case Weapon.Knife:
+                return knife;
+            case Weapon.RedMagicStaff:
+                return redMagicStaff;
         }
         return null;
     }
