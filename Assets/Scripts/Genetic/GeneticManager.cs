@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using System.Threading;
+using TMPro;
 
 public class GeneticManager : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class GeneticManager : MonoBehaviour
 
     [SerializeField]
     private Coin coin;
+
+    [SerializeField]
+    private TMP_Text generationText;
 
     private int generationCount = 0;
 
@@ -130,6 +134,7 @@ public class GeneticManager : MonoBehaviour
 
     private void Populate(List<GeneticIndividual> population) {
         Debug.Log("Begin of generation " + ++generationCount + "  / #population = " + population.Count);
+        generationText.text = "STAGE " + generationCount;
         int i = 0;
         this.population = new List<GeneticIndividual>();
         foreach(GeneticIndividual individual in population) {

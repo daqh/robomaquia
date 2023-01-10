@@ -84,6 +84,7 @@ PrefabInstance:
       propertyPath: m_CastsShadows
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2640701103154698068, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}

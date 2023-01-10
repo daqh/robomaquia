@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 901909800939212311}
   m_Layer: 0
   m_Name: BigDemon Avatar
-  m_TagString: Untagged
+  m_TagString: Agent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   - {x: 0.051595878, y: 0.062470183, z: 0}
   m_ShapePathHash: -1978450291
   m_Mesh: {fileID: 0}
-  m_InstanceId: -619572
+  m_InstanceId: 82622
 --- !u!1 &6933619843219303442
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 6933619843219303444}
   m_Layer: 0
   m_Name: Physics Collider
-  m_TagString: Untagged
+  m_TagString: Agent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

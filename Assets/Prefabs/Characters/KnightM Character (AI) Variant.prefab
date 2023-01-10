@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 750919957382505988, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 750919957382505988, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -68,17 +68,21 @@ PrefabInstance:
       propertyPath: multiplier
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 750919957382505999, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
-      propertyPath: avatar
-      value: 3
+    - target: {fileID: 750919957382505995, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_Mass
+      value: 0.012325873
       objectReference: {fileID: 0}
     - target: {fileID: 750919957382505999, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
-      propertyPath: weapon
+      propertyPath: avatar
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 750919957382505999, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: weapon
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 750919957382505999, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
       propertyPath: velocityMultiplier
-      value: 7.8979864
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 750919957382506003, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
       propertyPath: targetTag
@@ -92,6 +96,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5915673823025682561, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
+      propertyPath: m_InstanceId
+      value: -155786
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 750919957382505992, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
     m_AddedGameObjects: []
@@ -101,6 +109,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 750919957382505989, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
   m_PrefabInstance: {fileID: 7442602657319665039}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &6166924870850487009
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864026115443235722}
+  m_Enabled: 0
+  m_Density: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.33273304
 --- !u!114 &7655643517998081847
 MonoBehaviour:
   m_ObjectHideFlags: 0

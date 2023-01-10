@@ -53,7 +53,7 @@ public class GeneticIndividual : MonoBehaviour
 
     private void OnDeath()
     {
-        for (int i = 0; i < Mathf.Log(Fitness, 2); i++)
+        for (int i = 0; i < Fitness; i++)
         {
             Coin c = Instantiate(coin, lastPosition, Quaternion.identity);
             c.Rigidbody2D.AddForce(new Vector2(Random.Range(-10, 10), Random.Range(-10, 10)).normalized * Random.Range(10, 350));

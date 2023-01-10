@@ -42,7 +42,7 @@ public class AgentController : MonoBehaviour
         if(playerInFieldOfAttack) {
             if(player.transform.position.y < transform.position.y) {
                 Debug.DrawLine(transform.position, player.transform.position, Color.green);
-                movementController2D.Move(player.transform.position - transform.position);
+                movementController2D.Move(-transform.up);
             }
             characterWeaponController.Use(player.transform.position);
         } else if(playerInFieldOfView) {
@@ -75,9 +75,17 @@ public class AgentController : MonoBehaviour
         // }
     }
 
-    // private void OnCollisionStay2D(Collision2D col) {
-    //     destination = navigationMap.FindNextPoint(destination, this);
-    // }
+    private void OnCollisionEnter2D(Collision2D col) {
+        if(col.gameObject.tag == "Agent") {
+            AgentController other = col.gameObject.GetComponent<AgentController>();
+            if(col.transform.position.y > transform.position.y) {
+                NavigationPoint otherDestination = other.Destination;
+                other.Destination = destination;
+                destination = otherDestination;
+                // destination = navigationMap.FindNextPoint(destination, this);
+            }
+        }
+    }
 
 
     void OnDrawGizmos()
@@ -116,6 +124,15 @@ public class AgentController : MonoBehaviour
         }
         set {
             playerPosition = value;
+        }
+    }
+
+    public NavigationPoint Destination {
+        get {
+            return destination;
+        }
+        set {
+            destination = value;
         }
     }
 
