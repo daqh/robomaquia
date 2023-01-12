@@ -37,17 +37,28 @@ public class AgentController : MonoBehaviour
     private Vector2 playerPosition;
 
     private void LateUpdate() {
-        bool playerInFieldOfView = Vector2.Distance(player.transform.position, transform.position) < fieldOfViewRadius;
-        bool playerInFieldOfAttack = Vector2.Distance(player.transform.position, transform.position) < fieldOfAttackRadius;
-        if(playerInFieldOfAttack) {
-            if(player.transform.position.y < transform.position.y) {
+        if(player != null) {
+            bool playerInFieldOfView = Vector2.Distance(player.transform.position, transform.position) < fieldOfViewRadius;
+            bool playerInFieldOfAttack = Vector2.Distance(player.transform.position, transform.position) < fieldOfAttackRadius;
+            if(playerInFieldOfAttack) {
+                if(player.transform.position.y < transform.position.y) {
+                    Debug.DrawLine(transform.position, player.transform.position, Color.green);
+                    movementController2D.Move(-transform.up);
+                } else {
+                    movementController2D.Move(new Vector2(player.transform.position.x - transform.position.x, Random.Range(-1f, 1f)));
+                }
+                characterWeaponController.Use(player.transform.position);
+            } else if(playerInFieldOfView) {
                 Debug.DrawLine(transform.position, player.transform.position, Color.green);
-                movementController2D.Move(-transform.up);
+                movementController2D.Move(player.transform.position - transform.position);
+            } else {
+                if(Vector2.Distance(transform.position, destination.transform.position) > 0.2f) {
+                    movementController2D.Move(destination.transform.position - transform.position);
+                    Debug.DrawLine(transform.position, destination.transform.position, Color.green);
+                } else {
+                    destination = navigationMap.FindNextPoint(destination, this);
+                }
             }
-            characterWeaponController.Use(player.transform.position);
-        } else if(playerInFieldOfView) {
-            Debug.DrawLine(transform.position, player.transform.position, Color.green);
-            movementController2D.Move(player.transform.position - transform.position);
         } else {
             if(Vector2.Distance(transform.position, destination.transform.position) > 0.2f) {
                 movementController2D.Move(destination.transform.position - transform.position);

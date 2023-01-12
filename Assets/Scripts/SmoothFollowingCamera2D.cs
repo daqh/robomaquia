@@ -13,16 +13,18 @@ public class SmoothFollowingCamera2D : MonoBehaviour
 
     void LateUpdate()
     {
-        float distance =
-            Vector3
-                .Distance(new Vector3(transform.position.x,
-                    transform.position.y,
-                    0),
-                target.position);
-        Vector3 difference =
-            new Vector3(target.position.x, target.position.y, 0) -
-            new Vector3(transform.position.x, transform.position.y, 0);
-        transform.position += difference * Time.deltaTime * speed;
+        if(target != null) {
+            float distance =
+                Vector3
+                    .Distance(new Vector3(transform.position.x,
+                        transform.position.y,
+                        0),
+                    target.position);
+            Vector3 difference =
+                new Vector3(target.position.x, target.position.y, 0) -
+                new Vector3(transform.position.x, transform.position.y, 0);
+            transform.position += difference * Time.deltaTime * speed;
+        }
     }
 
     void OnDrawGizmos()

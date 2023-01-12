@@ -74,11 +74,11 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: e9818099834deee47b1c698b94961a57, type: 2}
     - target: {fileID: 2274016420700881862, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: m_Radius
-      value: 0.014128571
+      value: 0.024267383
       objectReference: {fileID: 0}
     - target: {fileID: 2274016420700881862, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: m_Offset.x
-      value: -0.008909786
+      value: -0.0043309703
       objectReference: {fileID: 0}
     - target: {fileID: 2274016420700881862, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: m_IsTrigger
@@ -102,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: m_InstanceId
-      value: -61090
+      value: -34878
       objectReference: {fileID: 0}
     - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: m_CastsShadows

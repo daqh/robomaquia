@@ -40,8 +40,10 @@ public class GeneticIndividual : MonoBehaviour
         if(characterFactory != null) {
             beenAlive = true;
             lastPosition = characterFactory.transform.position;
-            if(Vector2.Distance(characterFactory.transform.position, agentController.Player.transform.position) < agentController.FieldOfAttackRadius) {
-                lifespan += Time.deltaTime;
+            if(agentController.Player != null) {
+                if(Vector2.Distance(characterFactory.transform.position, agentController.Player.transform.position) < agentController.FieldOfAttackRadius) {
+                    lifespan += Time.deltaTime;
+                }
             }
         } else {
             if(beenAlive) {
