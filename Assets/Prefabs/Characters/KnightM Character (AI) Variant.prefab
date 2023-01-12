@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5915673823025682561, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
       propertyPath: m_InstanceId
-      value: -155786
+      value: -561176
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 750919957382505992, guid: dcc960a6c9e55b9489382234661459fc, type: 3}
@@ -138,4 +138,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fieldOfViewRadius: 1.216
-  fieldOfAttackRadius: 0.381
+  fieldOfAttackRadius: 0.5

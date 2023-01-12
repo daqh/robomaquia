@@ -48,6 +48,12 @@ public class CharacterWeaponController : MonoBehaviour
         }
     }
 
+    public bool InUse {
+        get {
+            return meleeWeapon && meleeWeapon.InUse;
+        }
+    }
+
     private MeleeWeapon meleeWeapon;
 
 }

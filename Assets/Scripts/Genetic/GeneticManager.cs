@@ -24,9 +24,19 @@ public class GeneticManager : MonoBehaviour
 
     private int generationCount = 0;
 
+    private DebugGUI debugGUI;
+
     private void Awake() {
         characterFactoryService = GetComponent<CharacterFactoryService>();
         weaponService = GetComponent<WeaponService>();
+        debugGUI = GetComponent<DebugGUI>();
+        DebugGUI.SetGraphProperties("maxFitness", "MAX Fitness", 0, 200, 0, Color.red, true);
+        DebugGUI.SetGraphProperties("avgFitness", "AVG Fitness", 0, 100, 1, new Color(0, 1, 1), true);
+        DebugGUI.SetGraphProperties("minFitness", "MIN Fitness", 0, 5, 2, Color.yellow, true);
+        DebugGUI.SetGraphProperties("totalFitness", "TOTAL Fitness", 0, 200, 3, Color.green, true);
+        DebugGUI.SetGraphProperties("rtMaxFitness", "MAX Fitness", 0, 0, 4, Color.red, true);
+        DebugGUI.SetGraphProperties("rtAvgFitness", "AVG Fitness", 0, 0, 4, new Color(0, 1, 1), true);
+        DebugGUI.SetGraphProperties("rtMinFitness", "MIN Fitness", 0, 0, 4, Color.yellow, true);
     }
 
     public void Start() {
@@ -46,31 +56,50 @@ public class GeneticManager : MonoBehaviour
     }
 
     void Update() {
+        if(Input.GetKeyDown(KeyCode.F1)) {
+            debugGUI.DisplayGraphs = !debugGUI.DisplayGraphs;
+            debugGUI.DisplayLogs = !debugGUI.DisplayLogs;
+        }
         bool generationEnd = true;
         foreach(GeneticIndividual individual in this.population) {
             if(individual.CharacterFactory != null) {
                 generationEnd = false;
             }
         }
+        float totalFitness = 0;
+        float maxFitness = 0;
+        float avgFitness = 0;
+        float minFitness = this.population[0].Fitness;
+        //
+        float maxLifespan = 0;
+        float minLifespan = this.population[0].TotalDamage;
+        int maxTotalDamage = 0;
+        int minTotalDamage = this.population[0].TotalDamage;
+        foreach(GeneticIndividual gi in this.population) {
+            totalFitness += gi.Fitness;
+            avgFitness += gi.Fitness / this.population.Count;
+            if(maxFitness < gi.Fitness) maxFitness = gi.Fitness;
+            if(minFitness > gi.Fitness) minFitness = gi.Fitness;
+            if(maxTotalDamage < gi.TotalDamage) maxTotalDamage = gi.TotalDamage;
+            if(minTotalDamage > gi.TotalDamage) minTotalDamage = gi.TotalDamage;
+            if(maxLifespan < gi.Lifespan) maxLifespan = gi.Lifespan;
+            if(minLifespan > gi.Lifespan) minLifespan = gi.Lifespan;
+        }
+        DebugGUI.LogPersistent("avgFitness", "AVG Fitness: " + avgFitness);
+        DebugGUI.LogPersistent("maxFitness", "MAX Fitness: " + maxFitness);
+        DebugGUI.LogPersistent("minFitness", "MIN Fitness: " + minFitness);
+        DebugGUI.LogPersistent("totalFitness", "TOTAL Fitness: " + totalFitness);
+        DebugGUI.Graph("rtMaxFitness", maxFitness);
+        DebugGUI.Graph("rtMinFitness", minFitness);
+        DebugGUI.Graph("rtAvgFitness", avgFitness);
         if(generationEnd) {
-            float totalFitness = 0;
-            float maxFitness = 0;
-            float avgFitness = 0;
-            float minFitness = this.population[0].Fitness;
-            //
-            float maxLifespan = 0;
-            float minLifespan = this.population[0].TotalDamage;
-            int maxTotalDamage = 0;
-            int minTotalDamage = this.population[0].TotalDamage;
+            for(int i = 0; i < 10; i++) {
+                DebugGUI.Graph("avgFitness", avgFitness);
+                DebugGUI.Graph("maxFitness", maxFitness);
+                DebugGUI.Graph("minFitness", minFitness);
+                DebugGUI.Graph("totalFitness", totalFitness);
+            }
             foreach(GeneticIndividual gi in this.population) {
-                totalFitness += gi.Fitness;
-                avgFitness += gi.Fitness / this.population.Count;
-                if(maxFitness < gi.Fitness) maxFitness = gi.Fitness;
-                if(minFitness > gi.Fitness) minFitness = gi.Fitness;
-                if(maxTotalDamage < gi.TotalDamage) maxTotalDamage = gi.TotalDamage;
-                if(minTotalDamage > gi.TotalDamage) minTotalDamage = gi.TotalDamage;
-                if(maxLifespan < gi.Lifespan) maxLifespan = gi.Lifespan;
-                if(minLifespan > gi.Lifespan) minLifespan = gi.Lifespan;
                 Destroy(gi.gameObject);
             }
             Debug.Log("End of generation " + generationCount + " / AvgFitness = " + avgFitness + " / MaxFitness = " + maxFitness + " / MinFitness = " + minFitness + " / TotalFitness = " + totalFitness);
