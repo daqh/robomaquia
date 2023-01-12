@@ -17,6 +17,22 @@ PrefabInstance:
       value: Agent
       objectReference: {fileID: 0}
     - target: {fileID: 2274016420411212356, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.060822662
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274016420411212356, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
+      propertyPath: m_Size.y
+      value: 0.080635734
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274016420411212356, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.00004804693
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274016420411212356, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.07211994
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274016420411212356, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.16
       objectReference: {fileID: 0}
@@ -94,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: m_InstanceId
-      value: -146332
+      value: -2426
       objectReference: {fileID: 0}
     - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: m_CastsShadows
