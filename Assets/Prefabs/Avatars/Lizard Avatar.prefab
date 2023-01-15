@@ -79,7 +79,7 @@ PrefabInstance:
     - target: {fileID: 2274016420411212362, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 22100000, guid: 3bb2a3fecf9c64e4cbb4dcf2f9e3e273, type: 2}
+      objectReference: {fileID: 22100000, guid: dda0eaa257414bc4884f33e46b2f3572, type: 2}
     - target: {fileID: 3463361137773840913, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: health
       value: 10
@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: m_InstanceId
-      value: -165480
+      value: -206754
       objectReference: {fileID: 0}
     - target: {fileID: 6373574540374685885, guid: f962c652fe2e1f849ab33ca3c4e5c8e4, type: 3}
       propertyPath: m_CastsShadows

@@ -111,7 +111,7 @@ public class GeneticManager : MonoBehaviour
             List<GeneticIndividual> selectedIndividuals = new List<GeneticIndividual>();
             for(int i = 0; i < this.population.Count; i++) {    // Selezione del 66% dei migliori individui (Escluso l'individuo elitario)
                 if(i < Mathf.Floor((this.population.Count / 100f) * 66f)) {
-                    this.population[i].gameObject.name = "Selected Individual " + i;
+                    this.population[i].gameObject.name = "Selected Individual " + i + " (" + this.population[i].Avatar + ")";
                     nextPopulation.Add(this.population[i]);
                     selectedIndividuals.Add(this.population[i]);
                 } else {
@@ -125,6 +125,7 @@ public class GeneticManager : MonoBehaviour
                 GeneticIndividual gi = go.AddComponent<GeneticIndividual>();
                 gi.Coin = coin;
                 gi.Avatar = this.population[i].Avatar;
+                go.name = go.name + " (" + gi.Avatar + ")";
                 gi.Weapon = this.population[i + 1].Weapon;
                 gi.VelocityMultiplier = this.population[i + 1].VelocityMultiplier;
                 Destroy(go);
@@ -147,6 +148,7 @@ public class GeneticManager : MonoBehaviour
                     Debug.Log("Setting avatar " + avatar + " to " + individual);
                     individual.Avatar = avatar;
                 }
+                individual.gameObject.name = individual.gameObject.name + " (" + individual.Avatar + ")";
             }
             RespawnPlayer();
             Populate(nextPopulation);
